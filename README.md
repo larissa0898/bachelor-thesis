@@ -1,4 +1,4 @@
-# Bachelorarbeit
+# Bachelor Thesis
 Dieses Repository beinhaltet den Programmcode der Bachelor Thesis "HIER EINFÜGEN". Mithilfe dieses Codes ist es möglich 
 
 
