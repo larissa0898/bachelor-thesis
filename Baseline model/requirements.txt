@@ -1,0 +1,3 @@
+pandas            # version 1.3.3
+nltk              # version 3.6.2
+deep_translator   # version 1.6.1
