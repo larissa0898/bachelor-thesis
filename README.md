@@ -3,10 +3,10 @@ Dieses Repository beinhaltet den Programmcode der Bachelor Thesis "HIER EINFÜGE
 
 
 #### Inhaltsverzeichnis
-- [Data](#data)
+- [Daten](#daten)
 - [Installation](#installation)
-- [Usage](#usage)
-- [References](#references)
+- [Nutzung](#nutzung)
+- [Literatur](#literatur)
 
 ## Daten
 Die verwendeten Daten sind Ergebnisse der Wortlerner-Studie. Sie bestehen aus folgenden Dateien:
@@ -25,4 +25,4 @@ Für diese Bachelor Thesis wurde die Python Version 3.9.5 benutzt. Die Versionen
 ### Jene .py-Datei
 
 
-## References
+## Literatur
