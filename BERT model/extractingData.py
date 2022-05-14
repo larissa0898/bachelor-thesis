@@ -16,8 +16,8 @@ for i in range(len(features)):
 
     if str(features['features'][i]) != "nan" and str(features['features'][i]) != "Fail" and str(features['features'][i]) != ",":
 
-        clean_association = re.sub(r',', '', features['features'][i])
-        clean_association = re.sub(r'\s*\+\s*', ' + ', clean_association)
+        clean_association = re.sub(r'\s*\+\s*', ' + ', features['features'][i])
+        #clean_association = re.sub(r'\s*\+\s*', ' + ', clean_association)
 
         vpCode.append(features['VP_Code'][i])
         word.append(features['word'][i])

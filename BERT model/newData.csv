@@ -468,7 +468,7 @@
 466	MK8MR	Wumeizauch	emo	Einen unerwünschten Ratschlag bekommen, der einem aufgedrängt wird.	Control	wunderschön + einzigartig + Verbindung + Nähe + Körperwärme + Liebe + Geborgenheit + Halt + Familie
 467	MK8MR	Mölauzegt	neu	Subjektive Bewertung, die nach innen und an sich selbst gerichtet ist.	Control	peinlich + Fehler + ungewollte Aufmerksamkeit + Sorgen + überprüfen + Lücken
 468	MK8MR	Ismiprämpf	emo	Die Vorfreude, wenn man Besuch erwartet und ständig ungeduldig prüft, ob die Person angekommen ist.	Control	Emotionen + Empathie + nicht allein + Verbindung + bewusst werden
-469	MK8MR	Glühm	neu	Ruhig sitzen bleiben, wenn es an der Tür klopft, und abwarten, ob es nochmal klopft.	Control	Überraschung + Freude + neu + unerwartet +  + egal
+469	MK8MR	Glühm	neu	Ruhig sitzen bleiben, wenn es an der Tür klopft, und abwarten, ob es nochmal klopft.	Control	Überraschung + Freude + neu + unerwartet + egal
 470	MK8MR	Enkmitas	emo	Die Frustration, wenn einem ein Wort auf der Zunge liegt, das einem entfallen ist.	Control	müde + antriebslos + Kopfschmerzen + keine klaren Gedanken + Sorgen + Angst
 471	MK8MR	Bismirbiel	emo	Eine heftige emotionale Reaktion auf ein unbedeutsames Ereignis zeigen.	Control	Erwartung + Freude + sich sammeln + mentale Vorbereitung + aufgeregt + nervös + Packliste + Sorgen
 472	MK8MR	Struk	neu	Die Zeit bevor man eine Reise antritt, die man geplant hat.	Control	kritisch + Zweifel + überlegen + Gedanken
@@ -504,7 +504,7 @@
 502	SF23KD	Zwelde	emo	Das glückliche und friedliche Aufwachen nach einem angenehmen Traum.	Imagery	scheiße + nervt mich + warum geht das nicht besser + Frust + Wut + Unruhe + Unbehagen + platzen können + wohin mit mir + genervt sein
 503	SF23KD	Herklögen	emo	Die ruhige Geborgenheit in der Anwesenheit einer vertrauten Person.	Imagery	Perfektionismus + unnötig + can't stop it + Zwang + Wut + Frustration + Ehrgeiz + Erschöpfung + Unmut + genervt + enttäuscht + wollen
 504	SF23KD	Preier	emo	Desinteresse vortäuschen, obwohl man etwas eigentlich haben möchte.	Imagery	Lust + Freude + Verlangen + Spaß + Maßlosigkeit + körperliche Nähe + Befriedigung + schön + warm + intensiv + stark + Sog + Verbunden sein + stillstand + Moment + genießen + kein Gedanke an gleich + Fantasie
-505	SF23KD	Troff	neu	Die Gewissheit darüber, dass den eigenen Taten und Entscheidungen Konsequenzen folgen werden.	Imagery	 + Stolz + Freude + Erleichterung + Sicherheit + Stärke + Hoffnung + Glaube + Fokus + angenehm + gut + sehr gut + ich kann das schaffen + gut gemacht + ich stehe für mich eine + mehr davon + Ziel erreichen + Freiheit
+505	SF23KD	Troff	neu	Die Gewissheit darüber, dass den eigenen Taten und Entscheidungen Konsequenzen folgen werden.	Imagery	Stolz + Freude + Erleichterung + Sicherheit + Stärke + Hoffnung + Glaube + Fokus + angenehm + gut + sehr gut + ich kann das schaffen + gut gemacht + ich stehe für mich eine + mehr davon + Ziel erreichen + Freiheit
 506	SF23KD	Iberletsch	neu	Der Impuls, eine andere Person berühren zu wollen.	Imagery	Stolz + Freude + Stärke + Fokus + Leichtigkeit + Lebensfreude + Selbstbewusstsein + Vertrauen + Fähigkeit + gut + verbunden + sicher + groß + grenzenlos + angenehm + mehr davon + schön + zufrieden + gelassen + glücklich
 507	SF23KD	Plüpp	neu	Die Mühe, wenn man eine andere Sprache spricht, im Vergleich zur eigenen Muttersprache.	Imagery	Hoffnungsvoll + aufgeregt + erregt + leidenschaftlich + Erwartung + wollen + unsicher + verlegen + erregt + verliebt
 508	SF23KD	Odef	neu	Die Erkenntnis, dass man sich in die Richtung entwickelt hat, die man vorhergesehen hat.	Imagery	unangenehm + Vermeidung + will ich nicht + Verdrängung + Höflichkeit + Respekt + Scham + Schuld + Bitte nicht + Bauchgrummeln + Konfliktvermeidung
@@ -546,7 +546,7 @@
 544	BM1DG	Plüpp	neu	Die Mühe, wenn man eine andere Sprache spricht, im Vergleich zur eigenen Muttersprache.	Imagery	besorgt + Hypochondrie + Angst + verwirrt + Panik + Keine Erklärung + Google
 545	BM1DG	Bismirbiel	emo	Eine heftige emotionale Reaktion auf ein unbedeutsames Ereignis zeigen.	Imagery	Anspannung + komisches Gefühl + Ungeduld + langweilig + abhängig
 546	BM1DG	Mege	emo	Das sichere Vertrauen in jemanden, der zuverlässig seinen Pflichten nachkommt.	Imagery	Anspannung + wer ist da + Verlangen nach Ruhe + unangenehm + stört mich
-547	BM1DG	Skibt	neu	Der Zustand, in den man kommt, wenn man die Gefühle anderer Menschen teilt.	Imagery	Anspannung + Tagträume + unrealistisch + Kontrolle + planen + Sicherheit + 
+547	BM1DG	Skibt	neu	Der Zustand, in den man kommt, wenn man die Gefühle anderer Menschen teilt.	Imagery	Anspannung + Tagträume + unrealistisch + Kontrolle + planen + Sicherheit
 548	BD13RN	Neif	emo	Mit Leidenschaft und Engagement alles in ein Herzensprojekt investieren.	Imagery	negativ + grübeln + auf und ab gehen + nicht schlafen können + negative Gedanken + Bauchschmerzen + Frust + Gedanken kreisen + Unwohlsein + zittrig + Übelkeit + verminderte Konzentrationsfähigkeit
 549	BD13RN	Häugnung	neu	Den Einfluss, den die Beobachtung einer zwischenmenschlichen Interaktion auf einen hat.	Imagery	Aufregung + Spannung + anstrengend + erschöpft + Freude + unsicher + frustriert
 550	BD13RN	Wupforau	emo	Die besondere Empfindung, dass man sich in die Person verlieben wird, die man gerade kennengelernt hat.	Imagery	Besserwisserisch + ungefragt + aufdrängen + genervt + sauer + Interessiert mich nicht + sich um die eigenen Probleme kümmern
@@ -727,11 +727,11 @@
 725	Ad12Gh	Namistell	neu	Zufällig etwas finden, ohne danach gesucht zu haben.	Imagery	Vorfreude + Freude + Glück + Reise + Überraschungsparty + Freunde + Abenteuer
 726	Ad12Gh	Plüpp	neu	Die Mühe, wenn man eine andere Sprache spricht, im Vergleich zur eigenen Muttersprache.	Imagery	Gedanke + dass WG Mitbewohnerin sich kümmert + Faulheit + schlechte Ohren + Zeitdruck + Stress
 727	Ad12Gh	Wupforau	emo	Die besondere Empfindung, dass man sich in die Person verlieben wird, die man gerade kennengelernt hat.	Imagery	Vorstellungsgespräch + unangenehm + Nervosität + vermeiden + notwendig + Schluss machen + Schuldgefühle + Schlechter Selbstwert + Unsicherheit
-728	BR11ST	Bismirbiel	emo	Eine heftige emotionale Reaktion auf ein unbedeutsames Ereignis zeigen.	Control	nervig + spannend + schnell erledigen +  + weiter geht es + ich ha
+728	BR11ST	Bismirbiel	emo	Eine heftige emotionale Reaktion auf ein unbedeutsames Ereignis zeigen.	Control	nervig + spannend + schnell erledigen + weiter geht es
 729	BR11ST	Zwelde	emo	Das glückliche und friedliche Aufwachen nach einem angenehmen Traum.	Control	Adrenalin pur + Ideenrausch + Freude + Aufregung + positiver Stress + Motivation
 730	BR11ST	Ferandsor	neu	Wenn man verschlossen ist, weil man lieber für sich bleibt als unter anderen Menschen.	Control	nervig + ätzend + überlegen wie man damit umgeht + ignorieren + seinen eigenen Weg gehen + Selbstsicherheit + annehmen? + Kontakt vermeiden wollen
 731	BR11ST	Zimerhubst	emo	Das ausgelaugte und erschöpfte Gefühl nach einer schlaflosen, sorgenvollen Nacht.	Control	Zärtlichkeit + Rührung + Empathie + Vergleich + nachdenklich
-732	BR11ST	Rugliebast	emo	Nervös ein wichtiges Gespräch im Kopf durchspielen, um keine Fehler zu begehen.	Control	Herzrasen + Aufregung + Kribbeln + Freude + Kopfkino + Spannung + 
+732	BR11ST	Rugliebast	emo	Nervös ein wichtiges Gespräch im Kopf durchspielen, um keine Fehler zu begehen.	Control	Herzrasen + Aufregung + Kribbeln + Freude + Kopfkino + Spannung
 733	BR11ST	Skibt	neu	Der Zustand, in den man kommt, wenn man die Gefühle anderer Menschen teilt.	Control	überreizt + unangenehm hinterher besonders + aufschaukeln + ärgerlich + unangenehm + heulen vor Wut
 734	BR11ST	Bisknirgo	emo	Ein Zustand vollkommener Harmonie und Gelassenheit, in dem man friedliche Ruhe empfindet.	Control	Nervig + lässt einem keine Ruhe + unangenehme Situation + peinlich + lustig + kommt auf den gegenüber an
 735	BR11ST	Mölauzegt	neu	Subjektive Bewertung, die nach innen und an sich selbst gerichtet ist.	Control	Gelassenheit + Entspannung + gutes Gefühl + Druck + Gefühl nicht gut genug zu sein + hoffen + dass man dem Anderen das gleiche Gefühl gibt
@@ -1259,7 +1259,7 @@
 1257	AO6NS	Bismirbiel	neu	Eine ausgeprägte Reaktion auf einen subtilen Auslöser zeigen.	Control	bildlich + Szene + skurril + Phantasie + Traumwelt + Zwischenwelt + verträumt + phantasievoll
 1258	AO6NS	Wunicher	neu	Der Versuch, eine Begegnung mit einer bestimmten Person zu umgehen.	Control	Entspannung + sprechen + Gespräche + Interaktion + Aufmerksamkeit + zuhören + ansehen
 1259	AO6NS	Plüpp	emo	Die Hemmung, wenn man eine Sprache spricht, in der man sich unsicher fühlt.	Control	Bescheidenheit + mutlos + zurückhalten + Rücksicht + empathisch + selbstlos + Enttäuschung
-1260	AO6NS	Rugliebast	neu	Mental ein zukünftiges Gespräch im Kopf durchspielen, um sich darauf vorzubereiten.	Control	Überraschung + sich wundern + übertreiben + sensibel sein + Sensitivität + Kribbeln + 
+1260	AO6NS	Rugliebast	neu	Mental ein zukünftiges Gespräch im Kopf durchspielen, um sich darauf vorzubereiten.	Control	Überraschung + sich wundern + übertreiben + sensibel sein + Sensitivität + Kribbeln
 1261	AO6NS	Ismiprämpf	neu	Wenn man davon ausgeht, dass jemand zu Besuch kommt, und regelmäßig prüft, ob die Person angekommen ist.	Control	ungeduldig + wartend + suchen + Fenster + hinausblicken + Uhr + herumgehen + Tür + unruhig + Vorfreude
 1262	AO6NS	Wupforau	neu	Die Einschätzung, dass jemand, den man gerade kennengelernt hat, einem wieder begegnen wird.	Control	verstecken + Scham + genervt + Herzklopfen + Aufregung + vermeiden + ruhebedürftig + kindisch + wartend + heimlich + verborgen + unsozial
 1263	AO6NS	Mölauzegt	emo	Die Frustration, wenn man wütend und unzufrieden mit sich selbst ist.	Control	Planung + ordnen + erwarten + antizipieren + Struktur + gewissenhaft + Vorwegnahme + Gedanken + Ideen + Angst
@@ -1268,7 +1268,7 @@
 1266	AK25DN	Häugnung	emo	Das Gefühl der Wärme, wenn man eine romantische Geste miterlebt hat.	Imagery	Überrollt + Desinteressiert + kontextlos
 1267	AK25DN	Bingsemöl	emo	Wenn man zwanghaft eine Tätigkeit wiederholt, weil man sie perfekt beherrschen will.	Imagery	Empathie + Mitgefühl + Mitfiebern + einfühlend + sich anstecken lassen + Freude
 1268	AK25DN	Preier	neu	Ein Angebot ablehnen, das man eigentlich wahrnehmen möchte.	Imagery	Man sieht sich immer zwei mal + über den Weg laufen + Intensivierung + Zufallsbekanntschaft
-1269	AK25DN	Troff	emo	Das zufriedene Gefühl der Selbstbestimmtheit, wenn man eine wichtige Entscheidung getroffen hat.	Imagery	Unterbewusstsein + Handeln + auf
+1269	AK25DN	Troff	emo	Das zufriedene Gefühl der Selbstbestimmtheit, wenn man eine wichtige Entscheidung getroffen hat.	Imagery	Unterbewusstsein + Handeln
 1270	AK25DN	Plüpp	emo	Die Hemmung, wenn man eine Sprache spricht, in der man sich unsicher fühlt.	Imagery	on the fingertip + auf der Zunge liegend + Blockade + Gedankenspiel + Umschreibung + Blackout
 1271	AK25DN	Zwelde	neu	Die Erinnerung an einen Traum nach dem Aufwachen.	Imagery	zielstrebig + commitment + Check + Zuverlässigkeit
 1272	AK25DN	Wumeizauch	neu	Von jemandem einen Ratschlag erhalten, ohne danach gefragt zu haben.	Imagery	Familie + Zuneigung + Wärme + zu Hause + Obhut + beschützen + Liebe + vertraut sein
@@ -1725,7 +1725,7 @@
 1723	AK24MG	Iberletsch	emo	Das Verlangen, eine geliebte Person innig zu küssen.	Control	englisch + schwedisch + unsicher + peinlich + Angst + Versagen + Referat + Vorlesen + Schule + stottern + versprechen + verhaspeln + rot
 1724	AK24MG	Struk	emo	Die aufgeregte Vorfreude, bevor man eine lang ersehnte Reise antritt.	Control	glücklich + grinsen + Honigkuchenpferd + strahlen + Sonne + Gesund + Freude + lachen + Zähne + Freunde + Familie
 1725	AK24MG	Bismirbiel	neu	Eine ausgeprägte Reaktion auf einen subtilen Auslöser zeigen.	Control	Eichhörnchen + Park + Kirschbäume + Lachen + Freude + Grinsen + Blumen + Freunde + Zufall + Yoga + besser
-1726	AK24MG	Weforshank	emo	Die liebevolle und warme Nähe zwischen Eltern und ihren Kindern.	Control	Party + Wecker zu früh + keine Lust + Aufstehen nein + Bett + Trägheit + Augen fallen zu + klebrige Augen + lange Nacht + durchmachen + Freunde + 
+1726	AK24MG	Weforshank	emo	Die liebevolle und warme Nähe zwischen Eltern und ihren Kindern.	Control	Party + Wecker zu früh + keine Lust + Aufstehen nein + Bett + Trägheit + Augen fallen zu + klebrige Augen + lange Nacht + durchmachen + Freunde
 1727	AK24MG	Ismiprämpf	neu	Wenn man davon ausgeht, dass jemand zu Besuch kommt, und regelmäßig prüft, ob die Person angekommen ist.	Control	Koffer packen + Corona + Freude + Aufregung + gespannt + Geräusch + ziehen + Reißverschluss
 1728	AK24MG	Häugnung	emo	Das Gefühl der Wärme, wenn man eine romantische Geste miterlebt hat.	Control	au + Idiot + Wut + Fettnäpfchen + warum + besser in Zukunft anders machen + lernen + alles wird gut + blöd
 1729	AK24MG	Namistell	emo	Die angenehme Überraschung, zufällig etwas Schönes zu finden.	Control	Volleyball + Aufschlag + anstrengend + niemand ist perfekt + Rebekka + Spaziergang + Stein springen lassen + Köln + Ehrgeiz + Streber

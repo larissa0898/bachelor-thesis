@@ -1,15 +1,14 @@
 from transformers import pipeline
 import json
-from deep_translator import GoogleTranslator
 import re
 import pandas as pd
-from serious_generating import *
+#from serious_generating import *
 
 
-features = pd.read_csv("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\Daten\\Features_clean.csv", sep=';', usecols=[2,3,7], encoding="latin-1")   # HIER CONFIG EINFÜGEN
+features = pd.read_csv("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\TranslatednewData.csv", sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
 
 
-def clean_features(translate:bool):
+def clean_features(features):
     """
     This function extracts the features of the Pseudowörter and cleans them.
     After that it splits them into neutral and emotional features and returns a 
@@ -28,24 +27,19 @@ def clean_features(translate:bool):
 
     associations_neu = []
     associations_emo = []
-    filename = "asso_split.txt" # HIER CONFIG EINFÜGEN
+    filename = "C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\translated_asso_split.json" # HIER CONFIG EINFÜGEN
 
 
     for i in range(len(features)):
 
         if str(features['features'][i]) != "nan" and str(features['features'][i]) != "Fail" and str(features['features'][i]) != ",":
 
-            clean_association = re.sub(r',', '', features['features'][i])
-            clean_association = re.sub(r'\s*\+\s*', ', ', clean_association)
-
-            if translate == True:
-                clean_association = GoogleTranslator(source='auto', target='en').translate(clean_association)
-                filename = "translated_asso_split.txt"   # HIER CONFIG EINFÜGEN
+            clean_association = re.sub(r'\s*\+\s*', ', ', features['features'][i])
 
             if features["emotionality"][i] == "neu":
                 associations_neu.append(clean_association)
 
-            if features["emotionality"][i] == "neu":
+            if features["emotionality"][i] == "emo":
                 associations_emo.append(clean_association)
 
 
@@ -76,27 +70,26 @@ def zero_shot_generatedText_en():
         Returns two json-files with the assignments of the generated associations to the ones from study participants.
     """
     
-    try:
-        data = open("translated_asso_split.txt")   # HIER CONFIG EINFÜGEN
-        data = json.load(data)
+    #try:
+    data = open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\translated_asso_split.json")   # HIER CONFIG EINFÜGEN
+    data = json.load(data)
 
-        participant_associations_emo = data[0]
-        participant_associations_neu = data[1]
+    participant_associations_emo = data[0]
+    participant_associations_neu = data[1]
 
-    except FileNotFoundError:
-        clean_features(features, translate=True)
+    #except FileNotFoundError:
+    #    clean_features(features)
     
 
-    try:
-        generated_neu = []
-        generated_emo = []
+    #try:
+    generated_file = open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\generated_en.json")   # HIER CONFIG EINFÜGEN
+    generated_file = json.load(generated_file)
 
+    generated_neu = []
+    generated_emo = []
 
-        generated_file = open("generated.txt")   # HIER CONFIG EINFÜGEN
-        generated_file = json.load(generated_file)
-
-    except FileNotFoundError:
-        generating_english_features()
+    #except FileNotFoundError:
+    #    generating_english_features()
 
 
     regex = r'^(.*?)I associate it with'
@@ -105,57 +98,37 @@ def zero_shot_generatedText_en():
 
         if "emotional" in list(dict.keys())[0]:
 
-            generated_text = dict.get(list(dict.keys())[0])
+            generated_text = list(dict.get(list(dict.keys())[0])[0].values())[0]
+            print(generated_text)
             generated_association = re.sub(regex, '', generated_text)
             generated_emo.append(generated_association.split(".")[0])
 
         if "neutral" in list(dict.keys())[0]:
 
-            generated_text = dict.get(list(dict.keys())[0])
+            generated_text = list(dict.get(list(dict.keys())[0])[0].values())[0]
             generated_association = re.sub(regex, '', generated_text)
             generated_neu.append(generated_association.split(".")[0])
-
-    #uni_chr_re = re.compile(r'\\u([a-fA-F0-9]{4})')
-
-    #generated_neu_clean = []
-    #generated_emo_clean = []
-
-    """ for ele in generated_emo:
-
-        generated_emo_clean.append(uni_chr_re.sub(lambda m: chr(int(m.group(1), 16)), ele))
-
-
-    for ele2 in generated_neu:
-
-        generated_neu_clean.append(uni_chr_re.sub(lambda m: chr(int(m.group(1), 16)), ele2))
-        """
-
-    #for i in range(len(generated_emo)):
-    #    generated_emo_clean.append(uni_chr_re.sub(lambda m: chr(int(m.group(1), 16)), generated_emo[i]))
-    #    generated_neu_clean.append(uni_chr_re.sub(lambda m: chr(int(m.group(1), 16)), generated_neu[i]))
 
 
 
     classifier_neu = pipeline("zero-shot-classification", model="facebook/bart-base", multi_label=True)  # model="bert-base-german-cased"
-    #result = classifier_neu(generated_neu_clean, candidate_labels=assoziationen_neu)
 
-    with open("zero_shot_english_generatedtext_neu.txt", "w") as fout:   # HIER CONFIG EINFÜGEN
+    with open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\zero_shot_english_generatedtext_neu.json", "w") as fout:   # HIER CONFIG EINFÜGEN
         json.dump(classifier_neu(generated_neu, candidate_labels=participant_associations_neu), fout)
 
 
 
     classifier_emo = pipeline("zero-shot-classification", model="facebook/bart-base", multi_label=True)  # model="bert-base-german-cased"
-    #result = classifier_emo(generated_emo_clean, candidate_labels=assoziationen_emo)
 
-    with open("zero_shot_english_generatedtext_emo.txt", "w") as fout:    # HIER CONFIG EINFÜGEN
-        json.dump(classifier_emo(generated_emo, candidate_labels=participant_associations_emo), fout)
-
+    with open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\zero_shot_english_generatedtext_emo.json", "w") as fout2:    # HIER CONFIG EINFÜGEN
+        json.dump(classifier_emo(generated_emo, candidate_labels=participant_associations_emo), fout2)
 
 
 
 
+""" 
 def zero_shot_generatedText_de():
-    """
+    
     This function takes the associations created by the study participants and 
     the associations generated by the pipeline in German and passes them together 
     through a zero-shot pipeline. Following this, two json files (emotional and neutral) 
@@ -170,7 +143,7 @@ def zero_shot_generatedText_de():
     Returns:
     --------
         Returns two json-files with the assignments of the generated associations to the ones from study participants.
-    """
+   
 
     try:
         data = open("asso_split_de.txt")   # HIER CONFIG EINFÜGEN
@@ -216,12 +189,6 @@ def zero_shot_generatedText_de():
     generated_neu_clean = []
     generated_emo_clean = []
 
-    """for ele in generated_emo:
-        generated_emo_clean.append(uni_chr_re.sub(lambda m: chr(int(m.group(1), 16)), ele))
-
-    for ele2 in generated_neu:
-        generated_neu_clean.append(uni_chr_re.sub(lambda m: chr(int(m.group(1), 16)), ele2)) """
-
     for i in range(len(generated_emo)):
         generated_emo_clean.append(uni_chr_re.sub(lambda m: chr(int(m.group(1), 16)), generated_emo[i]))
         generated_neu_clean.append(uni_chr_re.sub(lambda m: chr(int(m.group(1), 16)), generated_neu[i]))
@@ -240,4 +207,10 @@ def zero_shot_generatedText_de():
     #result = classifier_emo(generated_emo_clean, candidate_labels=assoziationen_emo)
 
     with open("zero_shot_generatedtext_emo_de.txt", "w") as fout:         # HIER CONFIG EINFÜGEN
-        json.dump(classifier_emo(generated_emo_clean, candidate_labels=participant_associations_emo), fout)
+        json.dump(classifier_emo(generated_emo_clean, candidate_labels=participant_associations_emo), fout) """
+
+
+
+
+#clean_features(features)
+zero_shot_generatedText_en()
