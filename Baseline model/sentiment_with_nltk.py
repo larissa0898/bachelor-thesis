@@ -2,8 +2,8 @@ import pandas as pd
 import csv
 import re
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from deep_translator import GoogleTranslator
 from configparser import ConfigParser
+import json
 
 
 
@@ -30,49 +30,187 @@ def feature_results(df):
     --------
         Returns a tsv-file with the predicted labels (neutral/emotional).
     """
-    compound = []
-    result = []
-    texte = []
+
+    finallist = []
     scores = []
     
     for i in range(len(df["features"])):
 
-        if str(df['features'][i]) != "nan" and str(df['features'][i]) != "Fail" and str(df['features'][i]) != ",":
-            replaced = re.sub(r'\+', ' + ', str(df['features'][i]))
-            translated = GoogleTranslator(source='auto', target='en').translate(replaced)
-            texte.append(translated)
+        replaced = re.sub(r'\s*\+\s*', ', ', str(df['features'][i]))
 
-            sia = SentimentIntensityAnalyzer()
-            score = sia.polarity_scores(str(translated))
+        sia = SentimentIntensityAnalyzer()
+        score = sia.polarity_scores(str(replaced))
+        scores.append(score)
+
+
+        if score.get("compound") < 0.5 and score.get("compound") > -0.5:    # 0.7845  und    -0.5388999999999999
+
+            finallist.append([df['VP_Code'][i], df['word'][i], df['emotionality'][i], df['features'][i], score.get('compound'), 'neutral'])
+
+        else:
+
+            finallist.append([df['VP_Code'][i], df['word'][i], df['emotionality'][i], df['features'][i], score.get('compound'), 'emotional'])
+
+
+
+    df = pd.DataFrame(finallist, columns=['VP_Code', 'Wort', 'Emotionalität', 'Features', "Sentiment Score", "Modelleinschätzung"])
+
+    df.to_csv(config['save_paths']['save_sentscore_features'], sep='\t', encoding='utf-8')
+
+
+
+def generated_results():
+    """
+    This function takes German features of a "Pseudowort", translates it to English and 
+    returns for the features of every word, if they are neutral or emotional, and saves 
+    it to a tsv-file.
+
+    Parameters:
+    -----------
+    df : DataFrame
+        Contains the relevant columns of the Features_clean.csv file.
+    
+    Returns:
+    --------
+        Returns a tsv-file with the predicted labels (neutral/emotional).
+    """
+
+    finallist = []
+    scores = []
+    zero_shot_results = open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\generating\\generated_en.json")
+    generated = json.load(zero_shot_results)
+
+    regex = r'^(.*?)I associate it with'
+
+    generated_emo = []
+    generated_neu = []
+    name_emo = []
+    name_neu = []
+    finallist = []
+    sia = SentimentIntensityAnalyzer()
+    for dict in generated:
+
+        if "emotional" in list(dict.keys())[0]:
+
+            name_emo = list(dict.keys())[0].split(",")[0]
+
+            generated_text = list(dict.get(list(dict.keys())[0])[0].values())[0]
+            generated_association = re.sub(regex, '', generated_text)
+            generated_emo = generated_association.split(".")[0]
+            
+            score = sia.polarity_scores(generated_emo)
             scores.append(score)
 
             if score.get("compound") < 0.5 and score.get("compound") > -0.5:    # 0.7845  und    -0.5388999999999999
-                result.append("neutral")
-                compound.append(score.get("compound"))
+
+                finallist.append([name_emo, 'emo', generated_emo, score.get('compound'), 'neutral'])
             else:
-                result.append("emotional")
-                compound.append(score.get("compound"))
+                finallist.append([name_emo, 'emo', generated_emo, score.get('compound'), 'emotional'])
+
+        if "neutral" in list(dict.keys())[0]:
+
+            name_neu=list(dict.keys())[0].split(",")[0]
+
+            generated_text = list(dict.get(list(dict.keys())[0])[0].values())[0]
+            generated_association = re.sub(regex, '', generated_text)
+            generated_neu = generated_association.split(".")[0]
+        
+            score = sia.polarity_scores(generated_neu)
+            scores.append(score)
+
+            if score.get("compound") < 0.5 and score.get("compound") > -0.5:    # 0.7845  und    -0.5388999999999999
+
+                finallist.append([name_neu, 'neu', generated_neu, score.get('compound'), 'neutral'])
+            else:
+                finallist.append([name_emo, 'neu', generated_neu, score.get('compound'), 'emotional'])
+
+
+    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Features', "Sentiment Score", "Modelleinschätzung"])
+
+    df.to_csv(config['save_paths']['save_sentscore_generated'], sep='\t', encoding='utf-8')
 
 
 
-    j = 0
-    with open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\Daten\\compound_TEST1var.tsv", 'wt', encoding='utf-8') as out_file:   #config['save_paths']['save_feat']
+def masked_results():
+    """
+    This function takes German features of a "Pseudowort", translates it to English and 
+    returns for the features of every word, if they are neutral or emotional, and saves 
+    it to a tsv-file.
 
-        for i in range(len(df["features"])):
+    Parameters:
+    -----------
+    df : DataFrame
+        Contains the relevant columns of the Features_clean.csv file.
+    
+    Returns:
+    --------
+        Returns a tsv-file with the predicted labels (neutral/emotional).
+    """
 
-            if str(df['features'][i]) != "nan" and str(df['features'][i]) != "Fail" and str(df['features'][i]) != ",":
-                tsv_writer = csv.writer(out_file, delimiter='\t')
-                tsv_writer.writerow([df['word'][i], df['emotionality'][i], str(df['features'][i]), scores[j], result[j]])    #texte[j],
-                j += 1
+    finallist = []
+    scores = []
+    zero_shot_results = open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\unmasked_en.json")
+    masked = json.load(zero_shot_results)
+
+    regex = r'^(.*?)I associate it with'
+
+    generated_emo = []
+    generated_neu = []
+    name_emo = []
+    name_neu = []
+    finallist = []
+    sia = SentimentIntensityAnalyzer()
+    for dict in masked:
+
+        if "emotional" in list(dict.keys())[0]:
+
+            generated_text = list(dict.values())[0]
+
+            name_emo = list(dict.keys())[0].split(",")[0]
+            string = ""
+            for asso in generated_text:
+                string = string + asso.strip() + ", "
+
+            generated_emo = string[:-2]
+            
+            score = sia.polarity_scores(generated_emo)
+            scores.append(score)
+
+            if score.get("compound") < 0.5 and score.get("compound") > -0.5:    # 0.7845  und    -0.5388999999999999
+
+                finallist.append([name_emo, 'emo', generated_emo, score.get('compound'), 'neutral'])
+            else:
+                finallist.append([name_emo, 'emo', generated_emo, score.get('compound'), 'emotional'])
+
+        if "neutral" in list(dict.keys())[0]:
+
+            generated_text = list(dict.values())[0]
+            name_neu = list(dict.keys())[0].split(",")[0]
+            string2 = ""
+            for asso2 in generated_text:
+                string2 = string2 + asso2.strip() + ", "
+            generated_neu = string2[:-2]
+        
+            score = sia.polarity_scores(generated_neu)
+            scores.append(score)
+
+            if score.get("compound") < 0.5 and score.get("compound") > -0.5:    # 0.7845  und    -0.5388999999999999
+
+                finallist.append([name_neu, 'neu', generated_neu, score.get('compound'), 'neutral'])
+            else:
+                finallist.append([name_emo, 'neu', generated_neu, score.get('compound'), 'emotional'])
 
 
+    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Features', "Sentiment Score", "Modelleinschätzung"])
+
+    df.to_csv(config['save_paths']['save_sentscore_masked'], sep='\t', encoding='utf-8')
 
 ##########################################################################################
 # Stimuli_clean_emotional Datei extrahieren und dem Modell übergeben
 ##########################################################################################
 
 
-def stimuli_resultate_emotional(stimuli):
+def stimuli_resultate(df):
     """
     This function takes German descriptions of a situation of a "Pseudowort", translates it to English and 
     returns for the situations of every word, if they are neutral or emotional, and saves 
@@ -87,106 +225,35 @@ def stimuli_resultate_emotional(stimuli):
     --------
         Returns a tsv-file with the predicted labels (neutral/emotional).
     """
-    compound_values = []
-    results =[]
-    translated_situations = []
+    finallist = []
     all_scores = []
     
-    for j in range(1,6):
 
-        for i in range(len(stimuli["Pseudowort"])):
+    for i in range(len(df["Wort"])):
 
-            text = GoogleTranslator(source='auto', target='en').translate(str(stimuli[f'Situation emotional {j}'][i]))
-            translated_situations.append(text)
-            sia = SentimentIntensityAnalyzer()
-            score = sia.polarity_scores(str(text))
-            all_scores.append(score)
+        sia = SentimentIntensityAnalyzer()
+        score = sia.polarity_scores(df["Situation"][i])
+        all_scores.append(score)
 
-            if score.get("compound") < 0.5423 and score.get("compound") > -0.528:   # 0.5844  und    -0.24555
-                results.append("neutral")
-                compound_values.append(score.get("compound"))
-            else:
-                results.append("emotional")
-                compound_values.append(score.get("compound"))
+        if score.get("compound") < 0.5423 and score.get("compound") > -0.528:   # 0.5844  und    -0.24555
 
+            siaResult = score.get("compound")
+            finallist.append([str(df["Wort"][i]), str(df["Emotionalität"][i]), str(df["Situation"][i]), siaResult, "neutral"])
 
-    m = 0
-    with open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\Daten\\compound_emo1var.tsv", 'wt', encoding='utf-8') as out_file:   #config['save_paths']['save_stimuli_emo']
+        else:
 
-        for k in range(1,6):
+            siaResult = score.get("compound")
+            finallist.append([str(df["Wort"][i]), str(df["Emotionalität"][i]), str(df["Situation"][i]), siaResult, "emotional"])
 
-            for i in range(len(stimuli["Pseudowort"])):
+    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Situation', "Sentiment Score", "Modeleinschätzung"])
 
-                tsv_writer = csv.writer(out_file, delimiter='\t')
-                tsv_writer.writerow([stimuli['Pseudowort'][i], str(stimuli[f'Situation emotional {k}'][i]), all_scores[m], results[m]]) #translated_situations[m],
-                m += 1
+    df.to_csv(config['save_paths']['save_sentscore_situation'], sep='\t', encoding='utf-8')
 
 
 
-##########################################################################################
-# Stimuli_clean_neutral Datei extrahieren und dem Modell übergeben
-##########################################################################################
-
-
-def stimuli_resultate_neutral(stimuli):
-    """
-    This function takes German descriptions of a situation of a "Pseudowort", translates it to English and 
-    returns for the situations of every word, if they are neutral or emotional, and saves 
-    it to a tsv-file.
-
-    Parameters:
-    -----------
-    stimuli : DataFrame
-        Contains the relevant columns of the Stimuli_clean.xlsx-file.
-    
-    Returns:
-    --------
-        Returns a tsv-file with the predicted labels (neutral/emotional).
-    """
-    compound_values = []
-    results = []
-    translated_situations = []
-    all_scores = []
-
-    for j in range(1,6):    
-
-        for i in range(len(stimuli["Pseudwort"])):
-
-            text = GoogleTranslator(source='auto', target='en').translate(str(stimuli[f'Situation neutral {j}'][i]))
-            translated_situations.append(text)
-            sia = SentimentIntensityAnalyzer()
-            score = sia.polarity_scores(str(text))
-            all_scores.append(score)
-
-            if score.get("compound") < 0.5423 and score.get("compound") > -0.528:
-                results.append("neutral")
-                compound_values.append(score.get("compound"))
-            else:
-                results.append("emotional")
-                compound_values.append(score.get("compound"))
-
-
-    m = 0
-    with open(config['save_paths']['save_stimuli_neu'], 'wt', encoding='utf-8') as out_file:
-
-        for k in range(1,6):
-
-            for i in range(len(stimuli["Pseudwort"])):
-
-                tsv_writer = csv.writer(out_file, delimiter='\t')
-                tsv_writer.writerow([stimuli['Pseudwort'][i], str(stimuli[f'Situation neutral {k}'][i]), all_scores[m], results[m]])  # append "translated_situations[m], ", if english version should be in output file
-                m += 1
-
-
-
-
-
-
-#features = pd.read_csv(config['load_paths']['filepath_feat'], sep=';', usecols=[2,3,7], encoding="latin-1")
-#feature_results(features)
-
-stimuli = pd.read_excel(config['load_paths']['filepath_stimuli_emo'], usecols=[0,2,3,4,5,6])
-stimuli_resultate_emotional(stimuli)
-
-#stimuli_2 = pd.read_excel(config['load_paths']['filepath_stimuli_neu'], usecols=[0,2,3,4,5,6])
-#stimuli_resultate_neutral(stimuli_2)
+features = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1,2,3,4,5,6], encoding="utf-8")
+feature_results(features)
+#generated_results()
+#masked_results()
+#stimuli = pd.read_csv(config['load_paths']['filepath_situation'], sep="\t", usecols=[0,1,2,3], encoding="utf-8")
+#stimuli_resultate(stimuli)

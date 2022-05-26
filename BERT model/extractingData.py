@@ -1,8 +1,12 @@
 import re
 import pandas as pd
+from configparser import ConfigParser
 
-features = pd.read_csv("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\Daten\\Features_clean.csv", sep=';', usecols=[0,2,3,5,7], encoding="latin-1")   # HIER CONFIG EINFÜGEN
-definitions = pd.read_excel("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\Daten\\Rating_Definitionen.xlsx", usecols=[0,1,8])   # HIER CONFIG EINFÜGEN
+config = ConfigParser()
+config.read('config.ini')
+
+features = pd.read_csv(config['load_paths']['filepath_feat_clean'], sep=';', usecols=[0,2,3,5,7], encoding="latin-1")
+definitions = pd.read_excel(config['load_paths']['filepath_rating_definition'], usecols=[0,1,8])
 
 
 vpCode = []
@@ -17,7 +21,6 @@ for i in range(len(features)):
     if str(features['features'][i]) != "nan" and str(features['features'][i]) != "Fail" and str(features['features'][i]) != ",":
 
         clean_association = re.sub(r'\s*\+\s*', ' + ', features['features'][i])
-        #clean_association = re.sub(r'\s*\+\s*', ' + ', clean_association)
 
         vpCode.append(features['VP_Code'][i])
         word.append(features['word'][i])
@@ -46,4 +49,4 @@ for i in range(len(vpCode)):
 df = pd.DataFrame(finallist, columns=['VP_Code', 'word', 'emotionality', 'definition', 'group', 'features'])
 
 
-df.to_csv("newData.csv", sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
+df.to_csv(config['save_paths']['save_new_data'], sep='\t', encoding='utf-8')

@@ -2,7 +2,10 @@ import json
 import re
 import pandas as pd
 import statistics
+from configparser import ConfigParser
 
+config = ConfigParser()
+config.read('config.ini')
 
 def createSublistForFinallist(name, definition, associations, emotionality):
     """
@@ -123,6 +126,7 @@ def getIndexinZeroShot(all_indices, all_scores, averageIndex, medianIndex, avera
     all_indices.append(index)
     medianIndex.append(index)
 
+
     score = zeroshotScores[index]
     all_scores.append(score)
 
@@ -229,7 +233,7 @@ def createListForCsvFileALLSPROBANDSONEWORD(featuresFile, definitionsFile, split
 
 def createCSVFile(finallist, overallAvgScore):
 
-    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Assoziationen', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Median Index', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Assoziationen', 'Scores', 'Durchschnittsscore'])
+    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Definition', 'Features', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Median Index', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Assoziationen', 'Scores', 'Durchschnittsscore'])
     df['Gesamtdurchschnittsscore'] = [overallAvgScore]*len(finallist)
 
     df.to_csv("getIndexMultiLable_andersrumTEEEST.csv", sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
@@ -238,7 +242,7 @@ def createCSVFile(finallist, overallAvgScore):
 
 
 def ZeroShotChainResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot("zero_shot_andersrum.json") 
+    zeroShotResults = getJsonZeroshot(config['load_paths']['filepath_zeroshot_Andersrum']) 
     #zeroShotResults = getJsonZeroshot("zero_shot_AllProbandsOneWord.json")
     overall_avg_score = 0
 
@@ -278,8 +282,8 @@ def ZeroShotChainResultToFile(finallist):
 
 
 
-featuresFile = pd.read_csv("TranslatednewData.csv", sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
-definitionsFile = pd.read_csv("TranslatedDefinitions.csv", sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
+featuresFile = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+definitionsFile = pd.read_csv(config['load_paths']['filepath_definition'], sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
 
 ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
 

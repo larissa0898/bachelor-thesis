@@ -1,6 +1,7 @@
 import re
 import json
 import pandas as pd
+import statistics
 
 
 def createSublistForFinallist(name, definition, associations, emotionality):
@@ -34,6 +35,18 @@ def createSublistForFinallist(name, definition, associations, emotionality):
 
     return sublist
 
+def getBestPercentage(all_indices, topindices):
+    bestIx = 0
+
+    for ix in all_indices:
+
+        if ix <= topindices:
+
+            bestIx += 1
+    
+    return round(bestIx*100/len(all_indices), 0)
+
+
 def addToChainSublist(sublist, k, all_indices, overallLength, average_index, all_scores, average_score):
     """
     This function takes the number of participants, all indices for the associations of the pseudoword,
@@ -62,12 +75,18 @@ def addToChainSublist(sublist, k, all_indices, overallLength, average_index, all
     sublist : list
        Contains name, definition, associations and emotionality of the pseudoword. 
     """
+    flat_list = [el for el in all_indices[0]]
+    flat_list.sort()
     sublist.append(k)   
-    sublist.append(all_indices)
-    sublist.append(average_index)
+    sublist.append(all_indices[0])
+    sublist.append(flat_list)
+    sublist.append(int(sum(all_indices[0])/len(all_indices[0])))
+    medianIndex = statistics.median(flat_list)
+    sublist.append(medianIndex)
+    sublist.append(getBestPercentage(flat_list, topindices=98))
     sublist.append(overallLength)
-    sublist.append(all_scores)
-    sublist.append(average_score)
+    sublist.append(all_scores[0])
+    sublist.append(sum(all_scores[0])/len(all_scores[0]))
 
     return sublist
 
@@ -96,10 +115,10 @@ def getJsonZeroshot(filename):
 
 def createCSVFile(finallist, overallAvgScore):
 
-    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Assoziationen', 'Anzahl Teilnehmer', 'Index der Scores', 'Durchschnittsindex', 'Insgesamte Anzahl der Indizes', 'Scores', 'Durchschnittsscore'])
+    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Assoziationen', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Medianindex', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Indizes', 'Scores', 'Durchschnittsscore'])
     df['Gesamtdurchschnittsscore'] = [overallAvgScore]*len(finallist)
 
-    df.to_csv("getIndexGenerated.csv", sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
+    df.to_csv("getIndexGeneratedDEFINI.csv", sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
 
 
 
@@ -110,34 +129,32 @@ def getIndexinZeroShot(indices, scores, averageIndex, averageScore, association,
 
     for el in association:
 
-        try:
-            index = zeroshotAssociation.index(el)
-            indices.append(index)
 
-            score = zeroshotScores[index]
-            scores.append(score)
+        index = zeroshotAssociation.index(el)
+        indices.append(index)
 
-            averageIndex += index
-            averageScore += score
-            k += 1
-        except ValueError:
-            print(el)
-            #pass
-            #print("----------------------------------------------------------------------------------------------------------------------------")
-            #print(zeroshotAssociation)
-            #print("----------------------------------------------------------------------------------------------------------------------------")
+        score = zeroshotScores[index]
+        scores.append(score)
+
+        averageIndex += index
+        averageScore += score
+        k += 1
 
     return indices, scores, averageIndex, averageScore, k, overallAssociations
 
 
 
-def createListForCsvFile(featuresFile, name_emo, name_neu, generated_emo, generated_neu, splitted):
+def createListForCsvFile(featuresFile, definitionsFile, name_emo, name_neu, generated_emo, generated_neu, splitted):
 
     finallist = []
 
-    for i in range(len(name_emo)):
-
+    #for i in range(len(name_emo)):
+    for i in range(len(definitionsFile)):
+        
         name = name_emo[i]
+
+        name_rows = featuresFile.loc[featuresFile['word'] == name]
+        defini = definitionsFile["Konzept "][name_rows.index[0]]
 
         tmp_associations_emo = []
 
@@ -160,11 +177,15 @@ def createListForCsvFile(featuresFile, name_emo, name_neu, generated_emo, genera
 
             
         if tmp_associations_emo != []:
-            finallist.append(createSublistForFinallist(name, generatedEmo, tmp_associations_emo, emotionality='emo'))
+            finallist.append(createSublistForFinallist(name, defini, generatedEmo, emotionality='emo'))  #tmp_associations_emo
         
 
 
-    for i in range(len(name_neu)):
+    #for i in range(len(name_neu)):
+    for i in range(len(definitionsFile)):
+
+        name_rows = featuresFile.loc[featuresFile['word'] == name]
+        defini = definitionsFile["N_Konzept"][name_rows.index[0]]
 
         name = name_neu[i]
         generatedNeu = generated_neu[i]
@@ -186,10 +207,10 @@ def createListForCsvFile(featuresFile, name_emo, name_neu, generated_emo, genera
                     tmp_associations_neu.append(str(name_rows['features'][j]))
 
         if tmp_associations_neu != []:
-            finallist.append(createSublistForFinallist(name, generatedNeu, tmp_associations_neu, emotionality='neu'))
+            finallist.append(createSublistForFinallist(name, defini, generatedNeu, emotionality='neu')) # tmp_associations_neu,
     
-    with open("finallist.json", "w") as fl:
-        json.dump(finallist, fl)
+    #with open("finallist.json", "w") as fl:
+    #    json.dump(finallist, fl)
     
     return finallist
 
@@ -197,17 +218,14 @@ def createListForCsvFile(featuresFile, name_emo, name_neu, generated_emo, genera
 
 
 def ZeroShotChainResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\zero_shot_english_generatedtext_emo.json") 
-    zeroShotResults2 = getJsonZeroshot("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\zero_shot_english_generatedtext_neu.json")
+    zeroShotResults = getJsonZeroshot("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\zero_shot_english_generatedtext_emoDEFINI.json") 
+    zeroShotResults2 = getJsonZeroshot("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\zero_shot_english_generatedtext_neuDEFINI.json")
     finalzeroshot = []
     for i in range(len(zeroShotResults)):
         finalzeroshot.append(zeroShotResults[i])
         finalzeroshot.append(zeroShotResults2[i])
-    with open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\TEST.json", "w") as fout2:    # HIER CONFIG EINFÜGEN
-        json.dump(finalzeroshot, fout2)
     
-    #for m in range(len(zeroShotResults2)):
-        #finalzeroshot.append(zeroShotResults2[m])
+
         
 
     overall_avg_score = 0
@@ -221,7 +239,6 @@ def ZeroShotChainResultToFile(finallist):
         anzahlProbanden = 0
         overallLength = 0
 
-        #schoneinmal = False
 
         for i in range(len(finalzeroshot)):
 
@@ -242,31 +259,25 @@ def ZeroShotChainResultToFile(finallist):
             if len(itemsWithSameGeneratedAssosiation) > 1:
                 index = -1
                 for items in itemsWithSameGeneratedAssosiation:
-                    #if items[1].containsListOfStrings(sublist[3]):
                     if all(x in items[1] for x in sublist[3]):
                         index = itemsWithSameGeneratedAssosiation.index(items)
 
                 zeroshot = itemsWithSameGeneratedAssosiation[index]
 
-            """ anzahlAnEinträgenmitGenerierterAssotioation = finalzeroshot.containsAmount(sublist[2])
-            anzahlAnEinträgenmitGenerierterAssotioation > 1 {
-                // mache stuff
-            } """
 
-            if zeroshot[0] == sublist[2]:# and schoneinmal == False:
-                #print(zeroshot[0])
-                #print(zeroshot[1])
+            schoneinmal = False
+            if zeroshot[0] == sublist[2] and schoneinmal == False:
+
                 anzahlProbanden = len(sublist[3])
                 indices, scores, averageIndex, averageScore, k, overallAssociations = getIndexinZeroShot(indices, scores, averageIndex, averageScore, sublist[3], zeroshot[1], zeroshot[2], k)
 
                 all_indices.append(indices)
                 all_scores.append(scores)
-                averageIndex = int(averageIndex / k)
-                averageScore = averageScore / k
+                averageIndex = int(averageIndex / len(all_indices[0]))
+                averageScore = averageScore / len(all_scores[0])
                 overallLength = overallAssociations
-                #schoneinmal = True
-                #if(schoneinmal):
-                #    print("Hello")
+                schoneinmal = True
+
 
         sublist = addToChainSublist(sublist, anzahlProbanden, all_indices, overallLength, averageIndex, all_scores, averageScore)
 
@@ -280,7 +291,7 @@ def ZeroShotChainResultToFile(finallist):
 
 
 
-zero_shot_results = open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\generated_en.json")
+zero_shot_results = open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\generating\\generated_en.json")
 generated = json.load(zero_shot_results)
 
 regex = r'^(.*?)I associate it with'
@@ -310,5 +321,6 @@ for dict in generated:
 
 
 featuresFile = pd.read_csv("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\TranslatednewData.csv", sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+definitionsFile = pd.read_csv("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\TranslatedDefinitions.csv", sep='\t', usecols=[1,2,3], encoding='utf-8')
 
-ZeroShotChainResultToFile(createListForCsvFile(featuresFile, name_emo, name_neu, generated_emo, generated_neu, splitted=False))
+ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, name_emo, name_neu, generated_emo, generated_neu, splitted=False))

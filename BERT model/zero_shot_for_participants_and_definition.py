@@ -2,7 +2,10 @@ from transformers import pipeline
 import pandas as pd
 import re
 import json
+from configparser import ConfigParser
 
+config = ConfigParser()
+config.read('config.ini')
 
 
 def getAssociationChain(featuresFile):
@@ -102,14 +105,17 @@ def getAssociationsSplitted(featuresFile):
         Contains filename.
     """
     assoziationen = set()
+    #avglen = 0
 
     for i in range(len(featuresFile)):
 
         tmp = featuresFile['features'][i].split("+")
+        #avglen += len(tmp)
 
         for j in tmp:
 
             assoziationen.add(j.strip())
+    #print(avglen/len(featuresFile))
 
     assoziationen = list(assoziationen)
     filename = "zero_shot_english_MultiLabel_splitted.json"
@@ -193,8 +199,8 @@ def  writeToFile(result, filename):
 
 if __name__ == "__main__":
 
-    featuresFile = pd.read_csv("TranslatednewData.csv", sep='\t', usecols=[1, 2, 3, 4, 5, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
-    definitionsFile = pd.read_csv("TranslatedDefinitions.csv", sep='\t', usecols=[1,2,3], encoding='utf-8')
+    featuresFile = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1, 2, 3, 4, 5, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+    definitionsFile = pd.read_csv(config['load_paths']['filepath_definition'], sep='\t', usecols=[1,2,3], encoding='utf-8')
 
     #associations, filename = getAssociationChain(featuresFile)
     associations, filename = getAssociationChainOfOneWord(featuresFile)

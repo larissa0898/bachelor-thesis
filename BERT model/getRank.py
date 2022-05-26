@@ -2,6 +2,10 @@ import json
 import re
 import pandas as pd
 import statistics
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read('config.ini')
 
 
 def createSublistForFinallist(name, definition, associations, emotionality):
@@ -334,8 +338,8 @@ def ZeroShotSplittedResultToFile(finallist):
 
 
 
-featuresFile = pd.read_csv("TranslatednewData.csv", sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
-definitionsFile = pd.read_csv("TranslatedDefinitions.csv", sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
+featuresFile = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+definitionsFile = pd.read_csv(config['load_paths']['filepath_definition'], sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
 
 ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
 #abc = createListForCsvFile(featuresFile, definitionsFile, splitted=True)
