@@ -242,7 +242,7 @@ def createCSVFile(finallist, overallAvgScore):
 
 
 def ZeroShotChainResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot(config['load_paths']['filepath_zeroshot_Andersrum']) 
+    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotAndersrum']) 
     #zeroShotResults = getJsonZeroshot("zero_shot_AllProbandsOneWord.json")
     overall_avg_score = 0
 
@@ -282,8 +282,8 @@ def ZeroShotChainResultToFile(finallist):
 
 
 
-featuresFile = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
-definitionsFile = pd.read_csv(config['load_paths']['filepath_definition'], sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
+featuresFile = pd.read_csv(config['PATHS']['TranslatednewData'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")
+definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')
 
 ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
 

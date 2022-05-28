@@ -1,4 +1,4 @@
-""" from scipy.stats.stats import pearsonr
+from scipy.stats.stats import pearsonr
 import pandas as pd
 from configparser import ConfigParser
 
@@ -6,8 +6,8 @@ config = ConfigParser()
 config.read('config.ini')
 
 
-sia = pd.read_csv(config['load_paths']['filepath_sentscore_features'], sep='\t', usecols=[1,2,3,4,5,6], encoding="utf-8")
-valence = pd.read_csv(config['load_paths']['filepath_valence'], sep=',', encoding="latin-1")
+sia = pd.read_csv(config['PATHS']['SentimentScoreFeatures'], sep='\t', usecols=[1,2,3,4,5,6], encoding="utf-8")
+valence = pd.read_csv(config['PATHS']['valence'], sep=',', encoding="latin-1")
 
 
 names = ['Wunicher', 'Neif', 'Zimerhubst', 'Zwelde', 'Herklögen', 'Preier', 'Muschürdur', 'Ismiprämpf', 'Glühm', 'Rugliebast',
@@ -58,13 +58,13 @@ for i in range(len(df)):
 
 df['Interpretation'] = interpretation
 
-df.to_csv(config['save_paths']['save_correlation'], sep='\t', encoding='utf-8') """
+df.to_csv(config['PATHS']['KorrelationSiaValence'], sep='\t', encoding='utf-8')
 
 
 
 
 
-
+""" 
 import matplotlib.pyplot as plt
 from scipy.stats.stats import pearsonr
 import numpy as np
@@ -130,7 +130,7 @@ a = [0.1779, 0.8248, -0.4404, 0.2023, -0.7506, 0.5171, 0.9612, 0.7003, -0.3182, 
 ,-0.886, 0.5859, 0.7783, 0.8591, 0.9559, -0.5106, -0.379, 0.8834, -0.4019, 0.6908, 0.3612, 0.9413, -0.296, -0.5267, -0.5267, 0.8807, -0.6908, 0.0, 0.0, -0.7964, -0.7351, 0.8807, 0.8885, 0.1531, 0.9468, -0.8885, 0.8807, -0.6908, 0.9022, 0.7184, 0.7717, 0.8807, -0.872
 ,-0.8126, -0.9674, 0.4215, 0.4767, -0.8885, 0.8714, -0.3182, -0.7756, 0.6124, -0.836, -0.3612, -0.8176, -0.9423, -0.8402, 0.9468, -0.765, 0.9878, 0.4548, -0.8957, -0.0516, 0.3806, -0.714, 0.8271, -0.8945, 0.4215, 0.836, -0.9042, 0.2263, 0.4019, 0.6369, -0.4939, 0.6705]
 
-b= [-3, -2, -2, -2, -2, -1, -2, -1, -2, -2, -2, 2, -2, -2, -2, -2, -1, 1, -2, -3, 2, -3, -3, -2, 0, 2, 1, 1, 0, -2, -2, -2,
+b = [-3, -2, -2, -2, -2, -1, -2, -1, -2, -2, -2, 2, -2, -2, -2, -2, -1, 1, -2, -3, 2, -3, -3, -2, 0, 2, 1, 1, 0, -2, -2, -2,
 -2, -1, -2, -1, 1, -2, -2, -1, -1, -2, -1, -1, -2, 0, -1, -1, -2, -2, -1, 0, 0, -2, -2, 1, -1, -1, -1, -1, -1, -2, -2, -3, 0,
 3, 3, 2, 1, 1, 3, 1, 3, 1, 2, -2, 2, 0, 2, 3, 2, 2, -3, 2, 3, 2, 2, 3, 2, 2, 0, 2, 3, 1, 3, 3, 3, 2,
 1, 2, 0, 3, 1, 2, 0, 1, -1, 0, 1, 1, 0, 1, 2, 1, 1, 1, 1, 2, 2, 3, 2, -1, 1, 2, 1, 3, 1, 1, 2, 1, 2,
@@ -221,3 +221,4 @@ ax.axhspan(0.33, 0.66, facecolor='lightblue', alpha=0.5)
 ax.axhspan(0.66, 1, facecolor='azure', alpha=0.5)
 
 plt.show()
+ """

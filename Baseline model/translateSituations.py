@@ -7,8 +7,8 @@ config = ConfigParser()
 config.read('config.ini')
 
 
-stimuli = pd.read_excel(config['load_paths']['filepath_stimuli_emo'], usecols=[0,2,3,4,5,6])
-stimuli_2 = pd.read_excel(config['load_paths']['filepath_stimuli_neu'], usecols=[0,2,3,4,5,6])
+stimuli = pd.read_excel(config['PATHS']['stimuli_emo'], usecols=[0,2,3,4,5,6])
+stimuli_2 = pd.read_excel(config['PATHS']['stimuli_neu'], usecols=[0,2,3,4,5,6])
 
 translated_situations = []
 finallist = []
@@ -34,4 +34,4 @@ for k in range(1,6):
 
 df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Situation'])
 
-df.to_csv(config['save_paths']['save_situation'], sep='\t', encoding='utf-8')
+df.to_csv(config['PATHS']['TranslatedSituations'], sep='\t', encoding='utf-8')

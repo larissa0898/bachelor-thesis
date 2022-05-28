@@ -237,7 +237,7 @@ def createListForCsvFileALLSPROBANDSONEWORD(featuresFile, definitionsFile, split
 
 def createCSVFile(finallist, overallAvgScore):
 
-    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Assoziationen', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Median Index', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Assoziationen', 'Scores', 'Durchschnittsscore'])
+    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Features', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Median Index', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Assoziationen', 'Scores', 'Durchschnittsscore'])
     df['Gesamtdurchschnittsscore'] = [overallAvgScore]*len(finallist)
 
     df.to_csv("getIndexMultiLable_andersrumEMOEGAL.csv", sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
@@ -246,7 +246,7 @@ def createCSVFile(finallist, overallAvgScore):
 
 
 def ZeroShotChainResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot("zero_shot_andersrum.json") 
+    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotAndersrum']) 
     #zeroShotResults = getJsonZeroshot("zero_shot_AllProbandsOneWord.json")
     overall_avg_score = 0
 
@@ -286,8 +286,8 @@ def ZeroShotChainResultToFile(finallist):
 
 
 
-featuresFile = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")
-definitionsFile = pd.read_csv(config['load_paths']['filepath_definition'], sep='\t', usecols=[1,2,3], encoding='utf-8')
+featuresFile = pd.read_csv(config['PATHS']['TranslatednewData'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")
+definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')
 
 ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
 

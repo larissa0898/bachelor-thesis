@@ -53,9 +53,9 @@ def feature_results(df):
 
 
 
-    df = pd.DataFrame(finallist, columns=['VP_Code', 'Wort', 'Emotionalität', 'Features', "Sentiment Score", "Modelleinschätzung"])
+    df = pd.DataFrame(finallist, columns=['VP_Code', 'Wort', 'Emotionalität', 'Features', "Sentiment Score", "Interpretation"])
 
-    df.to_csv(config['save_paths']['save_sentscore_features'], sep='\t', encoding='utf-8')
+    df.to_csv(config['PATHS']['SentimentScoreFeatures'], sep='\t', encoding='utf-8')
 
 
 
@@ -77,7 +77,7 @@ def generated_results():
 
     finallist = []
     scores = []
-    zero_shot_results = open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\generating\\generated_en.json")
+    zero_shot_results = open(config['PATHS']['ZeroShotGenerated'])
     generated = json.load(zero_shot_results)
 
     regex = r'^(.*?)I associate it with'
@@ -125,9 +125,9 @@ def generated_results():
                 finallist.append([name_emo, 'neu', generated_neu, score.get('compound'), 'emotional'])
 
 
-    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Features', "Sentiment Score", "Modelleinschätzung"])
+    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Features', "Sentiment Score", "Interpretation"])
 
-    df.to_csv(config['save_paths']['save_sentscore_generated'], sep='\t', encoding='utf-8')
+    df.to_csv(config['PATHS']['SentimentScoreGenerated'], sep='\t', encoding='utf-8')
 
 
 
@@ -149,7 +149,7 @@ def masked_results():
 
     finallist = []
     scores = []
-    zero_shot_results = open("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\unmasked_en.json")
+    zero_shot_results = open(config['PATHS']['unmasked_en']) 
     masked = json.load(zero_shot_results)
 
     regex = r'^(.*?)I associate it with'
@@ -201,9 +201,9 @@ def masked_results():
                 finallist.append([name_emo, 'neu', generated_neu, score.get('compound'), 'emotional'])
 
 
-    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Features', "Sentiment Score", "Modelleinschätzung"])
+    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Features', "Sentiment Score", "Interpretation"])
 
-    df.to_csv(config['save_paths']['save_sentscore_masked'], sep='\t', encoding='utf-8')
+    df.to_csv(config['PATHS']['SentimentScoreMasked'], sep='\t', encoding='utf-8')
 
 ##########################################################################################
 # Stimuli_clean_emotional Datei extrahieren und dem Modell übergeben
@@ -245,15 +245,15 @@ def stimuli_resultate(df):
             siaResult = score.get("compound")
             finallist.append([str(df["Wort"][i]), str(df["Emotionalität"][i]), str(df["Situation"][i]), siaResult, "emotional"])
 
-    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Situation', "Sentiment Score", "Modeleinschätzung"])
+    df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Situation', "Sentiment Score", "Interpretation"])
 
-    df.to_csv(config['save_paths']['save_sentscore_situation'], sep='\t', encoding='utf-8')
+    df.to_csv(config['PATHS']['SentimentScoreSituationen'], sep='\t', encoding='utf-8')
 
 
 
-features = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1,2,3,4,5,6], encoding="utf-8")
+features = pd.read_csv(config['PATHS']['TranslatednewData'], sep='\t', usecols=[1,2,3,4,5,6], encoding="utf-8")
 feature_results(features)
 #generated_results()
 #masked_results()
-#stimuli = pd.read_csv(config['load_paths']['filepath_situation'], sep="\t", usecols=[0,1,2,3], encoding="utf-8")
+#stimuli = pd.read_csv(config['PATHS']['TranslatedSituations'], sep="\t", usecols=[0,1,2,3], encoding="utf-8")
 #stimuli_resultate(stimuli)

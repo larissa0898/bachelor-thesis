@@ -21,13 +21,13 @@ def translatedDataToFile(file, definitions:bool):
             neuDefinition = TranslateText(file['N_Konzept'][i]).lower()
 
             tmpData.append([file['Name'][i], emoDefinition, neuDefinition])
-            filename = config['load_paths']['filepath_definition']
+            filename = config['PATHS']['TranslatedDefinitions']
             columns = ['word','Konzept ', 'N_Konzept']
         
         else:
             association = TranslateText(file['features'][i]).lower()
             tmpData.append([file['VP_Code'][i], file['word'][i], file['emotionality'][i], file['definition'][i], file['group'][i], association])
-            filename = config['load_paths']['filepath_feat']
+            filename = config['PATHS']['TranslatednewData']
             columns=['VP_Code','word', 'emotionality', 'definition', 'group', 'features']
     
 
@@ -38,8 +38,8 @@ def translatedDataToFile(file, definitions:bool):
 
 if __name__ == "__main__":
 
-    featuresFile = pd.read_csv(config['load_paths']['filepath_new_Data'], sep='\t', usecols=[1, 2, 3, 4, 5, 6], encoding="utf-8")
-    definitionsFile = pd.read_excel(config['load_paths']['filepath_rating_definition'], usecols=[0,1,8])    # HIER CONFIG EINFÜGEN
+    featuresFile = pd.read_csv(config['PATHS']['newData'], sep='\t', usecols=[1, 2, 3, 4, 5, 6], encoding="utf-8")
+    definitionsFile = pd.read_excel(config['PATHS']['Rating_Definitionen'], usecols=[0,1,8])
 
     translatedDataToFile(featuresFile, definitions=False)
     #translatedDataToFile(definitionsFile, definitions=True)

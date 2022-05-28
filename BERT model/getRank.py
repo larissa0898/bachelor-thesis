@@ -209,7 +209,7 @@ def createListForCsvFile(featuresFile, definitionsFile, splitted):
 
 def createCSVFile(finallist, overallAvgScore):
 
-    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Assoziationen', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Median Index', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Assoziationen', 'Scores', 'Durchschnittsscore'])
+    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Features', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Median Index', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Assoziationen', 'Scores', 'Durchschnittsscore'])
     df['Gesamtdurchschnittsscore'] = [overallAvgScore]*len(finallist)
 
     df.to_csv("getIndexMultiLable_chainTEEEEEEESSSSSTTTT.csv", sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
@@ -218,7 +218,7 @@ def createCSVFile(finallist, overallAvgScore):
 
 
 def ZeroShotChainResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot("zero_shot_english_MultiLabel_chain.json") 
+    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotMultiLabelChain']) 
 
     overall_avg_score = 0
 
@@ -263,7 +263,7 @@ def ZeroShotChainResultToFile(finallist):
 
 
 def ZeroShotSplittedResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot("zero_shot_english_MultiLabel_splitted.json")
+    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotMultiLabelChain'])
 
     anzahl = 0
 
@@ -329,7 +329,7 @@ def ZeroShotSplittedResultToFile(finallist):
         sublist = addToSplittedSublist(sublist, anzahlProbanden, indicesPerDefinition, all_indices, int(average_index/anzahl), overallLength, all_scores, average_score/anzahl)
 
     
-    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Assoziationen', 'Anzahl Teilnehmer', 'Alle Indizes pro Definition', 'sortierte Indizes', 'Index der Scores', 'Durchschnittsindex', 'Median', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Indizes', 'Scores', 'Durchschnittsscore'])
+    df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Features', 'Anzahl Teilnehmer', 'Alle Indizes pro Definition', 'sortierte Indizes', 'Index der Scores', 'Durchschnittsindex', 'Median', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Indizes', 'Scores', 'Durchschnittsscore'])
 
 
 
@@ -338,8 +338,8 @@ def ZeroShotSplittedResultToFile(finallist):
 
 
 
-featuresFile = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
-definitionsFile = pd.read_csv(config['load_paths']['filepath_definition'], sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
+featuresFile = pd.read_csv(config['PATHS']['TranslatednewData'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
 
 ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
 #abc = createListForCsvFile(featuresFile, definitionsFile, splitted=True)

@@ -5,8 +5,8 @@ from configparser import ConfigParser
 config = ConfigParser()
 config.read('config.ini')
 
-features = pd.read_csv(config['load_paths']['filepath_feat_clean'], sep=';', usecols=[0,2,3,5,7], encoding="latin-1")
-definitions = pd.read_excel(config['load_paths']['filepath_rating_definition'], usecols=[0,1,8])
+features = pd.read_csv(config['load_paths']['Features_clean'], sep=';', usecols=[0,2,3,5,7], encoding="latin-1")
+definitions = pd.read_excel(config['load_paths']['Rating_Definitionen'], usecols=[0,1,8])
 
 
 vpCode = []
@@ -49,4 +49,4 @@ for i in range(len(vpCode)):
 df = pd.DataFrame(finallist, columns=['VP_Code', 'word', 'emotionality', 'definition', 'group', 'features'])
 
 
-df.to_csv(config['save_paths']['save_new_data'], sep='\t', encoding='utf-8')
+df.to_csv(config['save_paths']['save_newData'], sep='\t', encoding='utf-8')

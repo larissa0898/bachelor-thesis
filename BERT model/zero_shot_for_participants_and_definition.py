@@ -33,7 +33,7 @@ def getAssociationChain(featuresFile):
         translated_feat = re.sub(r'\s*\+\s*', ', ', featuresFile['features'][i])
         assoziationen.append(translated_feat)
     #filename = "zero_shot_english_MultiLabel_chain.json"
-    filename = "zero_shot_andersrum.json"
+    filename = config['PATHS']['ZeroShotAndersrum']
 
     return assoziationen, filename
 
@@ -79,7 +79,7 @@ def getAssociationChainOfOneWord(featuresFile):
 
         assoziationen.append(tmp_str_emo.replace(', ', '', 1))
         assoziationen.append(tmp_str_neu.replace(', ', '', 1))
-    #filename = "zero_shot_english_MultiLabel_chain.json"
+    #filename = config['load_paths']['ZeroShotMultiLabelChain']
     filename = "zero_shot_AllProbandsOneWord.json"
 
     return assoziationen, filename
@@ -118,7 +118,7 @@ def getAssociationsSplitted(featuresFile):
     #print(avglen/len(featuresFile))
 
     assoziationen = list(assoziationen)
-    filename = "zero_shot_english_MultiLabel_splitted.json"
+    filename = config['PATHS']['ZeroShotMultiLabelSplitted']
 
     return assoziationen, filename
 
@@ -199,8 +199,8 @@ def  writeToFile(result, filename):
 
 if __name__ == "__main__":
 
-    featuresFile = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1, 2, 3, 4, 5, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
-    definitionsFile = pd.read_csv(config['load_paths']['filepath_definition'], sep='\t', usecols=[1,2,3], encoding='utf-8')
+    featuresFile = pd.read_csv(config['PATHS']['TranslatednewData'], sep='\t', usecols=[1, 2, 3, 4, 5, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+    definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')
 
     #associations, filename = getAssociationChain(featuresFile)
     associations, filename = getAssociationChainOfOneWord(featuresFile)

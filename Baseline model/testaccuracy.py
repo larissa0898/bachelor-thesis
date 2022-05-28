@@ -19,16 +19,16 @@ def calculatePercentages(file):
     falschkleinerNull = []
 
 
-    for i in range(len(featuresFile["Wort"])):
+    for i in range(len(file["Wort"])):
 
-        if file['Modelleinschätzung'][i] == 'neutral':
+        if file['Modeleinschätzung'][i] == 'neutral':
 
             if file['Emotionalität'][i] == 'neu':
                 neu_neutral +=1
             else:
                 emo_neutral +=1
 
-        if file['Modelleinschätzung'][i] == 'emotional':
+        if file['Modeleinschätzung'][i] == 'emotional':
 
             if file['Emotionalität'][i] == 'emo':
                 emo_emotional +=1
@@ -66,8 +66,9 @@ def calculatePercentages(file):
 
 
 
-featuresFile = pd.read_csv(config['load_paths']['filepath_sentscore_features'], sep='\t', usecols=[1, 2, 3, 4, 5], encoding="utf-8")   # HIER CONFIG EINFÜGEN
-situationsFile = pd.read_csv(config['load_paths']['filepath_sentscore_situation'], sep='\t', usecols=[1, 2, 3, 4, 5], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+featuresFile = pd.read_csv(config['PATHS']['SentimentScoreFeatures'], sep='\t', encoding="utf-8")   # HIER CONFIG EINFÜGEN
+situationsFile = pd.read_csv(config['PATHS']['SentimentScoreSituationen'], sep='\t', encoding="utf-8")   # HIER CONFIG EINFÜGEN
 
-calculatePercentages(featuresFile)
-#calculatePercentages(situationsFile)
+
+#calculatePercentages(featuresFile)
+calculatePercentages(situationsFile)
