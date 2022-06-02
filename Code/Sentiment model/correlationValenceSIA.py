@@ -6,60 +6,79 @@ config = ConfigParser()
 config.read('config.ini')
 
 
-sia = pd.read_csv(config['PATHS']['SentimentScoreFeatures'], sep='\t', usecols=[1,2,3,4,5,6], encoding="utf-8")
-valence = pd.read_csv(config['PATHS']['valence'], sep=',', encoding="latin-1")
+def loadData():
+    sia = pd.read_csv(config['PATHS']['SentimentScoreFeatures'], sep='\t', usecols=[1,2,3,4,5,6], encoding="utf-8")
+    valence = pd.read_csv(config['PATHS']['valence'], sep=',', encoding="latin-1")
+    return sia, valence
 
 
-names = ['Wunicher', 'Neif', 'Zimerhubst', 'Zwelde', 'Herklögen', 'Preier', 'Muschürdur', 'Ismiprämpf', 'Glühm', 'Rugliebast',
-'Wumeizauch', 'Häugnung', 'Wupforau', 'Bismirbiel', 'Enkmitas', 'Mege', 'Faube', 'Odef', 'Skibt', 'Mölauzegt', 'Troff', 
-'Bingsemöl', 'Ferandsor', 'Struk', 'Vul', 'Namistell', 'Weforshank', 'Plüpp', 'Bisknirgo', 'Iberletsch']
-finallist = []
+def getWords(df):
+    words = set()
 
-for name in names:
+    for i in range(len(df["Wort"])):
 
-    name_rows = sia.loc[sia['Wort'] == name]
-    name_rows2 = valence.loc[valence['word'] == name]
-    value1Emo = []
-    value2Emo = []
-    value1Neu = []
-    value2Neu = []
+        words.add(df["Wort"][i])
+    
+    return words
 
-    for j in name_rows.index:
+def getInterpretation(df):
+    interpretation = []
+
+    for i in range(len(df)):
+
+        if df['Korrelation'][i][0] > 0.66 or df['Korrelation'][i][0] < -0.66:
+           interpretation.append('strong')
+        if df['Korrelation'][i][0] < 0.66 and df['Korrelation'][i][0] > 0.33:
+           interpretation.append('moderate')
+        if df['Korrelation'][i][0] > -0.66 and df['Korrelation'][i][0] < -0.33:
+           interpretation.append('moderate')
+        else:
+           interpretation.append('weak')
+
+    df['Interpretation'] = interpretation
+
+    return df
+
+
+def saveDataToFile(df):
+    df.to_csv(config['PATHS']['KorrelationSiaValence'], sep='\t', encoding='utf-8')
+
+
+def hei(sia, valence):
+    words = getWords(sia)
+    finallist = []
+
+    for word in words:
+
+        siaWordRows = sia.loc[sia['Wort'] == word]
+        valenceWordRows = valence.loc[valence['word'] == word]
         
-        for k in name_rows2.index:
+        siaValueEmo, valenceValueEmo, siaValueNeu, valenceValueNeu = []
 
-            if sia['Emotionalität'][j] == 'emo' and valence['code'][k] == 'emo' and sia['VP_Code'][j] == valence['VP_Code'][k] and valence['time'][k] == 'post':
+        for j in siaWordRows.index:
+        
+            for k in valenceWordRows.index:
 
-                value1Emo.append(sia['Sentiment Score'][j])
-                value2Emo.append(valence['valence_rating'][k])
+                if sia['Emotionalität'][j] == 'emo' and valence['code'][k] == 'emo' and sia['VP_Code'][j] == valence['VP_Code'][k] and valence['time'][k] == 'post':
+
+                    siaValueEmo.append(sia['Sentiment Score'][j])
+                    valenceValueEmo.append(valence['valence_rating'][k])
             
-            if sia['Emotionalität'][j] == 'neu' and valence['code'][k] == 'neu' and sia['VP_Code'][j] == valence['VP_Code'][k] and valence['time'][k] == 'post':
+                if sia['Emotionalität'][j] == 'neu' and valence['code'][k] == 'neu' and sia['VP_Code'][j] == valence['VP_Code'][k] and valence['time'][k] == 'post':
 
-                value1Neu.append(sia['Sentiment Score'][j])
-                value2Neu.append(valence['valence_rating'][k])
+                    siaValueNeu.append(sia['Sentiment Score'][j])
+                    valenceValueNeu.append(valence['valence_rating'][k])
 
-    finallist.append([name, 'emo', value1Emo, value2Emo, pearsonr(value1Emo, value2Emo)])
-    finallist.append([name, 'neu', value1Neu, value2Neu, pearsonr(value1Neu, value2Neu)])
+        finallist.append([word, 'emo', siaValueEmo, round(sum(siaValueEmo)/len(siaValueEmo), 4), valenceValueEmo, round(sum(valenceValueEmo)/len(valenceValueEmo)), pearsonr(siaValueEmo, valenceValueEmo)])
+        finallist.append([word, 'neu', siaValueNeu, round(sum(siaValueNeu)/len(siaValueNeu), 4), valenceValueNeu, round(sum(valenceValueNeu)/len(valenceValueNeu)), pearsonr(siaValueNeu, valenceValueNeu)])
 
-df = pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Sentiment Score', 'Valence Rating', 'Korrelation'])
+    return pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Sentiment Score', 'Durchschnittsscore', 'Valence Rating', 'Durchschnittsrating', 'Korrelation'])
 
-interpretation = []
 
-for i in range(len(df)):
+if __name__ == '__main__':
 
-    if df['Korrelation'][i][0] > 0.66 or df['Korrelation'][i][0] < -0.66:
-        interpretation.append('strong')
-    if df['Korrelation'][i][0] < 0.66 and df['Korrelation'][i][0] > 0.33:
-        interpretation.append('moderate')
-    if df['Korrelation'][i][0] > -0.66 and df['Korrelation'][i][0] < -0.33:
-        interpretation.append('moderate')
-    else:
-        interpretation.append('weak')
-
-df['Interpretation'] = interpretation
-
-df.to_csv(config['PATHS']['KorrelationSiaValence'], sep='\t', encoding='utf-8')
-
+    sia, valence = loadData()
+    saveDataToFile(getInterpretation(hei(sia,valence)))
 
 
 
