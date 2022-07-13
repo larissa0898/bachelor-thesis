@@ -214,8 +214,8 @@ def createListForCsvFile(featuresFile, name_emo, name_neu, generated_emo, genera
 
 
 def ZeroShotChainResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\zero_shot_english_masked_emo.json") 
-    zeroShotResults2 = getJsonZeroshot("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\BERT model\\zero_shot_english_masked_neu.json")
+    zeroShotResults = getJsonZeroshot("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\Daten\\BERT Daten\\TemporaereDaten\\zero_shot_english_masked_emo.json") 
+    zeroShotResults2 = getJsonZeroshot("C:\\Users\\laris\\Desktop\\GitHub\\bachelor-thesis\\Daten\\BERT Daten\\TemporaereDaten\\zero_shot_english_masked_neu.json")
     finalzeroshot = []
     for i in range(len(zeroShotResults)):
         finalzeroshot.append(zeroShotResults[i])
@@ -287,7 +287,7 @@ def ZeroShotChainResultToFile(finallist):
 
 
 
-zero_shot_results = open(config['load_paths']['filepath_zeroshot_unmasked'])
+zero_shot_results = open(config['PATHS']['unmasked_en'])
 generated = json.load(zero_shot_results)
 
 
@@ -320,7 +320,7 @@ for dict in generated:
         generated_neu.append(string2[:-2])
 
 
-featuresFile = pd.read_csv(config['load_paths']['filepath_feat'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+featuresFile = pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
 
 result=createListForCsvFile(featuresFile, name_emo, name_neu, generated_emo, generated_neu, splitted=False)
 ZeroShotChainResultToFile(result)

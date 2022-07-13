@@ -131,7 +131,7 @@ def getJsonZeroshot(filename):
     Returns a json object containing the zero shot output of the model.
     """
 
-    zero_shot_results = open(filename)
+    zero_shot_results = open(filename) #C:\Users\laris\Desktop\GitHub\bachelor-thesis\Daten\BERT Daten\Temporäre Daten\zero_shot_english_MultiLabel_chain.json
 
     return json.load(zero_shot_results)
 
@@ -165,7 +165,7 @@ def createListForCsvFile(featuresFile, definitionsFile, splitted):
 
     for i in range(len(definitionsFile)):
 
-        name = str(definitionsFile["word"][i])
+        name = str(definitionsFile["Wort"][i])
 
         definitionEmo = str(definitionsFile["Konzept "][i])
         definitionNeu = str(definitionsFile["N_Konzept"][i])
@@ -263,7 +263,7 @@ def ZeroShotChainResultToFile(finallist):
 
 
 def ZeroShotSplittedResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotMultiLabelChain'])
+    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotMultiLabelSplitted'])
 
     anzahl = 0
 
@@ -338,9 +338,9 @@ def ZeroShotSplittedResultToFile(finallist):
 
 
 
-featuresFile = pd.read_csv(config['PATHS']['TranslatednewData'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
+featuresFile = pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
 definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
 
-ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
-#abc = createListForCsvFile(featuresFile, definitionsFile, splitted=True)
-#ZeroShotSplittedResultToFile(abc)
+#ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
+abc = createListForCsvFile(featuresFile, definitionsFile, splitted=True)
+ZeroShotSplittedResultToFile(abc)

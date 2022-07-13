@@ -147,7 +147,7 @@ def createListForCsvFile(featuresFile, definitionsFile, splitted):
 
     for i in range(len(definitionsFile)):
 
-        name = str(definitionsFile["word"][i])
+        name = str(definitionsFile["Wort"][i])
 
         definitionEmo = str(definitionsFile["Konzept "][i])
         definitionNeu = str(definitionsFile["N_Konzept"][i])
@@ -196,7 +196,7 @@ def createListForCsvFileALLSPROBANDSONEWORD(featuresFile, definitionsFile, split
 
     for i in range(len(definitionsFile)):
 
-        name = str(definitionsFile["word"][i])
+        name = str(definitionsFile["Wort"][i])
 
         definitionEmo = str(definitionsFile["Konzept "][i])
         definitionNeu = str(definitionsFile["N_Konzept"][i])
@@ -286,7 +286,7 @@ def ZeroShotChainResultToFile(finallist):
 
 
 
-featuresFile = pd.read_csv(config['PATHS']['TranslatednewData'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")
+featuresFile = pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")
 definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')
 
 ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
