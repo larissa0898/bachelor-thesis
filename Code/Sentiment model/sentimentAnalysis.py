@@ -149,8 +149,8 @@ def setDefinitionOutputDataframe(df):
 #data, filename = setFeatureOutputDataframe(pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1,2,3,4,5,6], encoding='utf-8'))
 #saveDataToFile(data, filename)
 
-#data, filename = setDefinitionOutputDataframe(pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', encoding='utf-8'))
-#saveDataToFile(data, filename)
+data, filename = setDefinitionOutputDataframe(pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', encoding='utf-8'))
+saveDataToFile(data, filename)
 
 data, filename = setGeneratedOutputDataframe()
 #data, filename =  setMaskedOutputDataframe()
