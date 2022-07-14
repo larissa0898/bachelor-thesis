@@ -278,6 +278,10 @@ def ZeroShotSplittedResultToFile(finallist):
 featuresFile = pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")
 definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')
 
+
+# Auswertung der Zero-Shot-Classification mit Teilnehmer-Feature-Ketten
 ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
-#abc = createListForCsvFile(featuresFile, definitionsFile, splitted=True)
-#ZeroShotSplittedResultToFile(abc)
+
+# Auswertung der Zero-Shot-Classification mit gesplitteten Teilnehmer-Feature-Ketten
+#result = createListForCsvFile(featuresFile, definitionsFile, splitted=True)
+#ZeroShotSplittedResultToFile(result)

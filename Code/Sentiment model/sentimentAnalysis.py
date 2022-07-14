@@ -145,15 +145,22 @@ def setDefinitionOutputDataframe(df):
     return pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Definition', 'Sentiment Score', 'Interpretation']), 'SentimentScoreDefinitionen'
 
 
-
+# Sentimentanalyse mit Teilnehmer-Features
 #data, filename = setFeatureOutputDataframe(pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1,2,3,4,5,6], encoding='utf-8'))
 #saveDataToFile(data, filename)
 
+# Sentimentanalyse mit Definitionen
 data, filename = setDefinitionOutputDataframe(pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', encoding='utf-8'))
 saveDataToFile(data, filename)
 
-data, filename = setGeneratedOutputDataframe()
+# Sentimentanalyse mit generierten Features
+#data, filename = setGeneratedOutputDataframe()
+#saveDataToFile(data, filename)
+
+# Sentimentanalyse mit masked Features
 #data, filename =  setMaskedOutputDataframe()
-saveDataToFile(data, filename)
+#saveDataToFile(data, filename)
+
+# Sentimentanalyse mit Situationen
 #df, filename = setSituationOutputDataframe(pd.read_csv(config['PATHS']['TranslatedSituations'], sep='\t', usecols=[0,1,2,3], encoding='utf-8'))
 #saveDataToFile(df, filename)

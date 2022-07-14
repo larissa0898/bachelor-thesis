@@ -132,17 +132,28 @@ def zeroShotClassificationAllFeatures(sequence,labels):
 
 
 
-participantFeat = cleanParticipantFeatures()
 
-definiNeu, definiEmo = getDefinitions()
+#data = loadJSON('unmaskedEn')
+
+# Zero-Shot-Classification für masked Features
+#maskedFeat = getMaskedFeatures(data)
+#participantFeat = cleanParticipantFeatures()
+#zeroShotClassificationAllFeatures(maskedFeat, participantFeat)
+
+
+# Zero-Shot-Classification für gesplittete masked Features mit Teilnehmer-Features als Label
 #maskedFeatNeu, maskedFeatEmo = getMaskedFeatures(loadJSON('unmaskedEn'))
-data = loadJSON('unmaskedEn')
-maskedFeat = getMaskedFeatures(data)
-#generatedFeatNeu, generatedFeatEmo = getGeneratedFeatures(loadJSON('generatedEn'))
-
-zeroShotClassificationAllFeatures(maskedFeat, participantFeat)
+#participantFeat = cleanParticipantFeatures()
 #zeroShotClassification(maskedFeatNeu, maskedFeatEmo, labelsNeu=participantFeat[1], labelsEmo=participantFeat[0])
+
+
+# Zero-Shot-Classification für masked Features mit Definitionen als Label
+#maskedFeatNeu, maskedFeatEmo = getMaskedFeatures(loadJSON('unmaskedEn'))
+#definiNeu, definiEmo = getDefinitions()
 #zeroShotClassification(maskedFeatNeu, maskedFeatEmo, labelsNeu=definiNeu, labelsEmo=definiEmo)
 
+
+# Zero-Shot-Classification für generated Features
+#generatedFeatNeu, generatedFeatEmo = getGeneratedFeatures(loadJSON('generatedEn'))
 #zeroShotClassification(generatedFeatNeu, generatedFeatEmo, labelsNeu=participantFeat[1], labelsEmo=participantFeat[0])
 #zeroShotClassification(generatedFeatNeu, generatedFeatEmo, labelsNeu=definiNeu, labelsEmo=definiEmo)

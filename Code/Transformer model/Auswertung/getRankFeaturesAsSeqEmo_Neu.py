@@ -133,7 +133,7 @@ def createCSVFile(finallist, overallAvgScore):
     df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Features', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Median Index', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Assoziationen', 'Scores', 'Durchschnittsscore'])
     df['Gesamtdurchschnittsscore'] = [overallAvgScore]*len(finallist)
 
-    df.to_csv(config['PATHS']['GetIndexFeaturesAsSeqEmo_Neu'], sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
+    df.to_csv(config['PATHS']['GetIndexFeaturesAsSeqEmo_Neu'], sep='\t', encoding='utf-8')
 
 
 

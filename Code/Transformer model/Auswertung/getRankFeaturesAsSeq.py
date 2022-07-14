@@ -220,6 +220,9 @@ def ZeroShotChainResultToFile(finallist):
 featuresFile = pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")
 definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')
 
+# Auswertung der Zero-Shot-Classification mit Teilnehmer-Features als Sequenzen
 ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
 
+# Auswertung der Zero-Shot-Classification mit Teilnehmer-Features als Sequenzen, wobei
+# alle Ketten eines Wortes als eine einzige Sequenz übergeben werden
 #ZeroShotChainResultToFile(createListForCsvFileALLSPROBANDSONEWORD(featuresFile, definitionsFile, splitted=False))

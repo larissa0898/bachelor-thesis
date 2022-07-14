@@ -110,6 +110,7 @@ if __name__ == "__main__":
     #features, filename = getFeatureChains(featuresFile)
     features, filename = getAllFeatureChainsOfOneWord(featuresFile)
     #features, filename = getFeaturesSplitted(featuresFile)
+    
     definitions = getDefinitions(definitionsFile)
 
     writeToFile(zeroShotClassification(definitions, features), filename)
