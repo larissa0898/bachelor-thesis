@@ -1,5 +1,5 @@
 # Bachelor Thesis
-Dieses Repository beinhaltet den Programmcode der Bachelor Thesis "Computerlinguistische Analyse empirischer neurolinguistischer Daten". Mithilfe dieses Codes ist es möglich 
+Dieses Repository beinhaltet den Programmcode der Bachelor Thesis "Computerlinguistische Analyse empirischer neurolinguistischer Daten".
 
 
 #### Inhaltsverzeichnis
@@ -11,11 +11,11 @@ Dieses Repository beinhaltet den Programmcode der Bachelor Thesis "Computerlingu
 ## Installation
 Zunächst müssen alle Dateien dieses GitHub Repositories gedownloadet werden.<br />
 Mit `pip install -r requirements.txt` werden alle benötigten Bibliotheken installiert.<br />
-Für diese Bachelor Thesis wurde die Python Version 3.9.5 benutzt. Die Versionen der benutzten Bibliotheken können in der 'requirements.txt'-Datei gefunden werden. <br />
-Um den Code verwenden zu können, müssen zunächst die Pfade in [config.ini](https://github.com/larissa0898/bachelor-thesis/blob/main/config.ini) geändert werden.
+Für diese Bachelor Thesis wurde die Python Version 3.9.5 benutzt. Die Versionen der benutzten Bibliotheken sind in `requirements.txt` zu finden. <br />
+Um den Code verwenden zu können, müssen zunächst die Pfade in `config.ini` geändert werden.
 
 ## Daten
-Die verwendeten Daten sind Ergebnisse der neurolinguistischen Studie von Espey et al. Die Originaldaten sind im Ordner [alte_Studiendaten](https://github.com/larissa0898/bachelor-thesis/tree/main/Daten/alte%20Studiendaten) zu finden. 
+Die verwendeten Daten sind Ergebnisse der neurolinguistischen Studie von Espey et al. Die Originaldaten sind im Ordner `alte_Studiendaten` zu finden. 
 
 ## Workflow
 
