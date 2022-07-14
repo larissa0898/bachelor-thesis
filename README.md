@@ -22,9 +22,9 @@ Die verwendeten Daten sind Ergebnisse der neurolinguistischen Studie von Espey e
 In diesem Abschnitt werden die Ansätze, deren Beschreibungen, dazugehörige Python-Codes, sowie die Endergebnisse in den jeweiligen Ordnern zusammengefasst.<br />
 
 |   Ansatz   | Pre-Processing   |Sentimentanalyse    | Transformer-Modell: DistilRoBERTa  | Transformer-Modell: BART  |
-| ------------- | ------------- |------------- | -------- |
+| ------------- | ------------- |------------- | ------------- | ------------- |
 | Beschreibung   | Bereinigung und Übersetzung der Daten  |Berechnung der Sentimentwerte, sowie Korrelation der Valenz- & Sentimentwerte | Generierung der Feature-Ketten  | Zuordnung der Feature-Ketten & Definitionen zu Pseudowörtern  | 
-| Python-Code    | `extractingData.py`, `translateData.py`,`translateSituations.py`   |`sentimentAnalysis.py`, `correlationValenceSIA.py` | `generatingFeatures.py`  | `zeroShotWithMaskedFeatures.py`, `zeroShotWithParticipantFeatures.py`  | 
+| Python-Code    | `extractingData.py`<br /> `translateData.py` <br />`translateSituations.py`   |`sentimentAnalysis.py` <br />`correlationValenceSIA.py` | `generatingFeatures.py`  | `zeroShotWithMaskedFeatures.py` <br />`zeroShotWithParticipantFeatures.py`  | 
 | Ergebnisse    | `PreProcessing`   |`Sentiment_Daten` | `Transformer_Daten` | `Transformer_Daten` |
 
 ## Literatur
