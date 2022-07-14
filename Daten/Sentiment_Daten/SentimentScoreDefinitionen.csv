@@ -1,0 +1,61 @@
+	Wort	Emotionalität	Definition	Sentiment Score	Interpretation
+0	Wunicher	emo	the strong urge to avoid an uncomfortable encounter.	-0.128	neutral
+1	Wunicher	neu	attempting to avoid encountering a specific person.	-0.296	neutral
+2	Neif	emo	invest everything in a heart project with passion and commitment.	0.6808	emotional
+3	Neif	neu	investing resources and skills in the implementation of an idea.	0.0	neutral
+4	Zimerhubst	emo	the drained and exhausted feeling after a sleepless, worrying night.	-0.7096	emotional
+5	Zimerhubst	neu	the physical sluggishness after a night of sleep deprivation.	-0.4215	neutral
+6	Zwelde	emo	waking up happy and peaceful after a pleasant dream.	0.9042	emotional
+7	Zwelde	neu	the memory of a dream after waking up.	0.25	neutral
+8	Herklögen	emo	the calm security in the presence of a trusted person.	0.7783	emotional
+9	Herklögen	neu	being in the company of other people you know.	0.0	neutral
+10	Preier	emo	faking disinterest when you actually want something.	-0.3612	neutral
+11	Preier	neu	decline an offer you actually want to accept.	0.4404	neutral
+12	Muschürdur	emo	feeling a bitter sadness that overwhelms you for no reason.	-0.802	emotional
+13	Muschürdur	neu	noticing a sensation in yourself that occurs for no reason.	-0.296	neutral
+14	Ismiprämpf	emo	the anticipation when you are expecting visitors and are constantly impatiently checking whether the person has arrived.	-0.3182	neutral
+15	Ismiprämpf	neu	assuming someone is coming to visit and regularly checking to see if the person has arrived.	0.0	neutral
+16	Glühm	emo	pretending to be out of the house when there's a knock on the door and hoping the person will leave.	0.4588	neutral
+17	Glühm	neu	when there is a knock on the door, sit still and wait to see if it knocks again.	0.0	neutral
+18	Rugliebast	emo	nervously replay an important conversation in your head to avoid making mistakes.	-0.5423	emotional
+19	Rugliebast	neu	mentally rehearse a future conversation to prepare for it.	0.0	neutral
+20	Wumeizauch	emo	getting unwanted advice foisted on you.	-0.2263	neutral
+21	Wumeizauch	neu	received advice from someone without asking for it.	0.0	neutral
+22	Häugnung	emo	the feeling of warmth after witnessing a romantic gesture.	0.7351	emotional
+23	Häugnung	neu	the impact that watching an interpersonal interaction has on you.	0.0	neutral
+24	Wupforau	emo	the special feeling that you will fall in love with the person you just met.	0.8126	emotional
+25	Wupforau	neu	the belief that someone you just met will meet you again.	0.0	neutral
+26	Bismirbiel	emo	exhibiting a violent emotional reaction to an insignificant event.	-0.6908	emotional
+27	Bismirbiel	neu	demonstrate a pronounced response to a subtle trigger.	0.0	neutral
+28	Enkmitas	emo	the frustration of having a word on the tip of your tongue that has slipped your mind.	-0.4767	neutral
+29	Enkmitas	neu	that brief moment when you forget a word that you actually know.	-0.2263	neutral
+30	Mege	emo	the sure trust in someone who reliably fulfills his duties.	0.765	emotional
+31	Mege	neu	taking note that someone has completed all of their duties.	0.0	neutral
+32	Faube	emo	the eye contact two people share while both hoping the other person will make the first move.	0.6124	emotional
+33	Faube	neu	the possibility that eye contact with another person will result in a conversation that they initiate.	0.0	neutral
+34	Odef	emo	the pride when you realize that you have developed in the right direction.	0.34	neutral
+35	Odef	neu	the realization that you have evolved in the direction you envisioned.	0.0	neutral
+36	Skibt	emo	the happiness you feel when you share the happiness of other people.	0.8555	emotional
+37	Skibt	neu	the state one gets when sharing other people's feelings.	0.4215	neutral
+38	Mölauzegt	emo	the frustration of being angry and unhappy with yourself.	-0.8481	emotional
+39	Mölauzegt	neu	subjective evaluation directed inwards and towards oneself.	0.0	neutral
+40	Troff	emo	the satisfied feeling of self-determination when you have made an important decision.	0.6249	emotional
+41	Troff	neu	the certainty that your actions and decisions will have consequences.	0.25	neutral
+42	Bingsemöl	emo	when you compulsively repeat an activity because you want to master it perfectly.	0.6705	emotional
+43	Bingsemöl	neu	when one repeats an activity in order to be able to perform it sufficiently well.	0.2732	neutral
+44	Ferandsor	emo	fear of trusting someone and being hurt because of bad experiences.	-0.8126	emotional
+45	Ferandsor	neu	when you are withdrawn because you prefer to keep to yourself than to be among other people.	0.0	neutral
+46	Struk	emo	the excited anticipation before embarking on a long-awaited journey.	0.4215	neutral
+47	Struk	neu	the time before you start a trip that you have planned.	0.0	neutral
+48	Vul	emo	the anxiety and tension of racking your brain over something.	-0.4588	neutral
+49	Vul	neu	the realization that more information is needed to solve a problem.	-0.2263	neutral
+50	Namistell	emo	the pleasant surprise of finding something nice by accident.	0.6249	emotional
+51	Namistell	neu	finding something by accident without having searched for it.	-0.4767	neutral
+52	Weforshank	emo	the loving and warm closeness between parents and their children.	0.7003	emotional
+53	Weforshank	neu	the bond created by touch between parents and their child.	0.25	neutral
+54	Plüpp	emo	the inhibition of speaking a language you feel insecure about.	-0.6486	emotional
+55	Plüpp	neu	the trouble of speaking a different language compared to your mother tongue.	-0.4019	neutral
+56	Bisknirgo	emo	a state of complete harmony and serenity in which one feels peaceful calm.	0.802	emotional
+57	Bisknirgo	neu	a calm, unmoving state in which one is free from external influences.	0.6808	emotional
+58	Iberletsch	emo	the desire to kiss a loved one deeply.	0.8555	emotional
+59	Iberletsch	neu	the impulse to want to touch another person.	0.0772	neutral

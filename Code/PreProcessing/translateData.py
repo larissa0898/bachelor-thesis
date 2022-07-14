@@ -27,7 +27,7 @@ def translatedDataToFile(file, definitions:bool):
         else:
             association = TranslateText(file['features'][i]).lower()
             tmpData.append([file['VP_Code'][i], file['word'][i], file['emotionality'][i], file['definition'][i], file['group'][i], association])
-            filename = config['PATHS']['TranslatednewData']
+            filename = config['PATHS']['TranslatedFeatures']
             columns=['VP_Code','word', 'emotionality', 'definition', 'group', 'features']
     
 
@@ -39,7 +39,7 @@ def translatedDataToFile(file, definitions:bool):
 if __name__ == "__main__":
 
     featuresFile = pd.read_csv(config['PATHS']['newData'], sep='\t', usecols=[1, 2, 3, 4, 5, 6], encoding="utf-8")
-    definitionsFile = pd.read_excel(config['PATHS']['Rating_Definitionen'], usecols=[0,1,8])
+    definitionsFile = pd.read_excel(config['PATHS']['RatingDefinitionen'], usecols=[0,1,8])
 
     translatedDataToFile(featuresFile, definitions=False)
     #translatedDataToFile(definitionsFile, definitions=True)

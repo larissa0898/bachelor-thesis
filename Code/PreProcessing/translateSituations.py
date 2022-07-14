@@ -8,8 +8,8 @@ config.read('config.ini')
 
 
 def loadData():
-    stimuliEmo = pd.read_excel(config['PATHS']['stimuli_emo'], usecols=[0,2,3,4,5,6])
-    stimuliNeu = pd.read_excel(config['PATHS']['stimuli_neu'], usecols=[0,2,3,4,5,6])
+    stimuliEmo = pd.read_excel(config['PATHS']['stimuliEmo'], usecols=[0,2,3,4,5,6])
+    stimuliNeu = pd.read_excel(config['PATHS']['stimuliNeu'], usecols=[0,2,3,4,5,6])
 
     return stimuliEmo, stimuliNeu
 

@@ -5,48 +5,64 @@ from configparser import ConfigParser
 config = ConfigParser()
 config.read('config.ini')
 
-features = pd.read_csv(config['load_paths']['Features_clean'], sep=';', usecols=[0,2,3,5,7], encoding="latin-1")
-definitions = pd.read_excel(config['load_paths']['Rating_Definitionen'], usecols=[0,1,8])
+def loadDataframe():
+    features = pd.read_csv(config['PATHS']['FeaturesClean'], sep=';', usecols=[0,2,3,5,7], encoding="latin-1")
+    definitions = pd.read_excel(config['PATHS']['RatingDefinitionen'], usecols=[0,1,8])
+    return features, definitions
 
 
-vpCode = []
-word = []
-emotionality = []
-group = []
-associations = []
-definition = []
 
-for i in range(len(features)):
+def getDefinitions(emotionality, definitionsFile, featuresWord, definition):
+    if emotionality == 'emo':
 
-    if str(features['features'][i]) != "nan" and str(features['features'][i]) != "Fail" and str(features['features'][i]) != ",":
+        nameRowsEmo = definitionsFile.loc[definitionsFile['Name'] == featuresWord]
+        definition.append(definitionsFile['Konzept '][nameRowsEmo.index[0]])
 
-        clean_association = re.sub(r'\s*\+\s*', ' + ', features['features'][i])
+    else: 
 
-        vpCode.append(features['VP_Code'][i])
-        word.append(features['word'][i])
-        emotionality.append(features['emotionality'][i])
-        group.append(features['group'][i])
-        associations.append(clean_association)
-
-        if features['emotionality'][i] == 'emo':
-
-            name_rows = definitions.loc[definitions['Name'] == features['word'][i]]
-            definition.append(definitions['Konzept '][name_rows.index[0]])
-
-        else: 
-
-            name_rows2 = definitions.loc[definitions['Name'] == features['word'][i]]
-            definition.append(definitions['N_Konzept'][name_rows2.index[0]])
+        nameRowsNeu = definitionsFile.loc[definitionsFile['Name'] == featuresWord]
+        definition.append(definitionsFile['N_Konzept'][nameRowsNeu.index[0]])
+        
+    return definition
 
 
-finallist = []
 
-for i in range(len(vpCode)):
+def cleanFeatures(featuresFile, definitionsFile):
+    vpCode = []
+    word = []
+    emotionality = []
+    group = []
+    features = []
+    definitions = []
 
-    finallist.append([vpCode[i], word[i], emotionality[i], definition[i], group[i], associations[i]])
+    for i in range(len(featuresFile)):
+
+        if str(featuresFile['features'][i]) != "nan" and str(featuresFile['features'][i]) != "Fail" and str(featuresFile['features'][i]) != ",":
+
+            clean_association = re.sub(r'\s*\+\s*', ' + ', featuresFile['features'][i])
+
+            vpCode.append(featuresFile['VP_Code'][i])
+            word.append(featuresFile['word'][i])
+            emotionality.append(featuresFile['emotionality'][i])
+            group.append(featuresFile['group'][i])
+            features.append(clean_association)
+            
+            definitions = getDefinitions(featuresFile['emotionality'][i], definitionsFile, featuresFile['word'][i], definition=definitions)
+
+    return vpCode, word, emotionality, definitions, group, features
 
 
-df = pd.DataFrame(finallist, columns=['VP_Code', 'word', 'emotionality', 'definition', 'group', 'features'])
+def createFinallist(vpCode, word, emotionality, definitions, group, features):
+    finallist = []
+
+    for i in range(len(vpCode)):
+
+        finallist.append([vpCode[i], word[i], emotionality[i], definitions[i], group[i], features[i]])
+    
+    return finallist, ['VP_Code', 'word', 'emotionality', 'definition', 'group', 'features'], 'newData'
 
 
-df.to_csv(config['save_paths']['save_newData'], sep='\t', encoding='utf-8')
+def saveData(finallist,columns,filename):
+    df = pd.DataFrame(finallist, columns=columns)
+
+    df.to_csv(config['PATHS'][filename], sep='\t', encoding='utf-8')

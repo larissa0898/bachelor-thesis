@@ -1,0 +1,301 @@
+	Wort	Emotionalität	Situation
+0	Vul	neu	A neighbor's kid asks you for help with a math homework. You start to calculate and realize that a value is missing to solve the equation.
+1	Vul	emo	You ponder whether you passed your last exam and can finish your studies within the standard period of study. You are tense and nervous to the breaking point.
+2	Vul	neu	You started writing your homework early. You come to a point where you need information that you guys won't discuss until next week.
+3	Vul	emo	You had an argument with your partner. You bitterly ponder how to resolve your conflict. You are restless and cannot think clearly.
+4	Vul	neu	You have to choose between two job offers. You notice on your pro/con list that a company is still missing important information in order to make a decision.
+5	Vul	emo	Your thoughts revolve all the time around the question of whether you should change your job or not. It could be a big mistake to go, but you could also miss something. It is to despair.
+6	Vul	neu	You have to get a Secret Santa gift for a work colleague. You don't know him/her that well and think about asking another colleague about his or her preferences.
+7	Vul	emo	There is a fight in your circle of friends. You are unsure what to say. You don't want to hurt anyone. You are sensitive and concerned.
+8	Vul	neu	You want to change your internet contract. There is a form online to apply for this. You don't have your customer number in your head, but you need it for the form.
+9	Vul	emo	You sit lonely and upset in your apartment. Again and again you feverishly roll over the events. How did this nasty breakup come about?
+10	Neif	neu	You are working on a large project on an app for your employer. This should enable employees to contact each other. Your employer paid you for a programming course.
+11	Neif	emo	You are enthusiastic about developing an app for a children's hospital. It is very important to you as you know the value of friendship and comfort in difficult times. You work hard at it every day.
+12	Neif	neu	You have been asked to create a logo for a club around the corner from you. You use your skills in a computer program to create multiple designs.
+13	Neif	emo	You happily plan a karaoke night at a nursing home. You have seen how much fun singing is for the residents and you do everything you can to do something good for them.
+14	Neif	neu	To save time at work by explaining a common computer problem. You use your experience and create detailed, step-by-step instructions for all employees.
+15	Neif	emo	In your free time you organize a big charity gala with dedication. You use every free minute with motivation, the good cause is close to your heart.
+16	Neif	neu	You thought it would be handy to have storage space under the bed. You use wood from the basement and your tools to build a drawer unit yourself.
+17	Neif	emo	You spare no expense or effort to build your father a long-desired bookshelf. You buy high-quality materials and watch motivated tutorials. He deserves it.
+18	Neif	neu	You and your siblings want to start a business. You share the work among yourself and everyone contributes their part.
+19	Neif	emo	You are enthusiastically developing the new homepage for a friend. You love him*her very much and want the homepage to make him*her happy.
+20	Zimerhubst	neu	You went to bed late last night because you made a to-do list for work. You need a stronger coffee than usual to wake up properly.
+21	Zimerhubst	emo	You slept poorly last night because you were worried about failing at work today. Now you feel powerless and it seems completely hopeless to be able to meet the deadline.
+22	Zimerhubst	neu	You went to bed late last night because you wanted to watch another episode of your series. Now you need some time to really wake up. Your eyelids are heavy.
+23	Zimerhubst	emo	You didn't sleep a wink last night because today's presentation scared you. You are trying desperately to concentrate. You are totally exhausted.
+24	Zimerhubst	neu	You stayed up later than usual last night because you were still on the phone. You're kind of sluggish and you buy an energy drink on your way to work.
+25	Zimerhubst	emo	Worries about today's interview kept you awake. You're now sitting dejected in the waiting area and could collapse.
+26	Zimerhubst	neu	You were at a party last night and didn't get home until late. Today you are slower than usual and you need a little longer for everything.
+27	Zimerhubst	emo	You didn't sleep last night because you had an argument with your partner in the evening. You feel completely powerless and helpless. You can hardly keep your eyes open from exhaustion.
+28	Zimerhubst	neu	You sorted out your old clothes last night and lost track of time. When you wake up, you realize that your circulation is not really getting going.
+29	Zimerhubst	emo	You were very restless last night because your mother is in the hospital and you are worried about her. You feel miserable and don't know how to make it through the day.
+30	Zwelde	neu	You wake up as a child and you can still remember the story from your dream. You were in the forest and there were animals in it.
+31	Zwelde	emo	As a child, you wake up satisfied from a beautiful dream. It's almost Christmas and you've been dreaming of great presents.
+32	Zwelde	neu	You woke up this morning and remembered your dream unusually well. You review the dream.
+33	Zwelde	emo	You wake up from a wonderful dream in which you were praised and promoted by your boss. You feel inspired and happy.
+34	Zwelde	neu	You wake up in the morning and for a moment you don't know where you are. You dreamed that you were with your parents, but you are in your own apartment.
+35	Zwelde	emo	The sun on your face gently wakes you up. You dreamed that you were relaxing on the beach. You smile and enjoy the cozy warmth.
+36	Zwelde	neu	You wake up in the morning after dreaming that all people own planes instead of cars. You remember your dream well.
+37	Zwelde	emo	You had an amazing lunchtime daydream about how you're going to have fun with your friends over the weekend. This motivates you to work.
+38	Zwelde	neu	Last night you dreamed about the series that you currently watch in the evenings. The main characters also appeared in your dream.
+39	Zwelde	emo	You dreamed of a romantic date with your crush last night. You smile blissfully and wish you could always dream like this.
+40	Herklögen	neu	After work you sit at dinner with your roommates in the shared kitchen. You've been living together for two years. You eat together and talk about your day.
+41	Herklögen	emo	You meet up with your best friend. His*her mere presence calms you down and you feel everyday stress melt away and you relax.
+42	Herklögen	neu	After work, your partner will be waiting for you at home. You start a new series together after dinner.
+43	Herklögen	emo	You come home from work and your partner hugs you lovingly. You relax and feel safe.
+44	Herklögen	neu	You are visiting a friend. You drink coffee together and go for a walk. You talk about this and that.
+45	Herklögen	emo	You're going home for a long weekend. You enjoy the time with your parents and feel protected like a child. you love her very much
+46	Herklögen	neu	You're at work and you're making yourself a coffee. Your colleague comes into the kitchen and also makes himself a coffee. You talk briefly during your break.
+47	Herklögen	emo	You go out after work with some nice co-workers. You feel deep affection, your colleagues are almost like family.
+48	Herklögen	neu	You go to a café at the weekend. You happen to meet an old friend there. You talk a little because you haven't seen each other for a long time.
+49	Herklögen	emo	You are at a tournament with your team at the weekend. You enjoy this day with your friends. The familiar company is good for you and you are happy.
+50	Preier	neu	You receive an invitation to a party scheduled for the weekend. You are considering going, but you still have a lot to do, which is why you are staying at home.
+51	Preier	emo	You were subsequently invited to a party as the last person in your circle of friends. You feel devalued and insulted. You get defiant and lie that you already have a date.
+52	Preier	neu	Your cell phone has a reduced battery life. You tell your brother about it and he offers you his old cell phone. You're not taking it so he can sell it.
+53	Preier	emo	Your colleague successfully gives a presentation that you worked on. You pretend to be happy, but blame your colleague for not appreciating your cooperation.
+54	Preier	neu	Your work colleagues ask you if you would like to have lunch with them at the diner around the corner. You decline because you brought something to eat from home.
+55	Preier	emo	A couple of work colleagues share a cake in the kitchen. You're hoping to be offered a piece, but you don't want to seem greedy. So you pretend you happen to have something to do in the kitchen.
+56	Preier	neu	After visiting an acquaintance, you are offered a ride home. It would be a detour for her*him, which is why you decline the offer.
+57	Preier	emo	You crave your crush's attention. You stubbornly ignore him*her to keep your pride. It tears you up inside not to talk to him*her.
+58	Preier	neu	You are offered a seat on the tram for carrying heavy shopping bags. You don't want anyone to stand up for you, so you refuse. You stay put for the ride.
+59	Preier	emo	You get a message from your crush. You pretend you don't have time to reply so as not to seem desperate. You miss him*her terribly.
+60	Muschürdur	neu	You wake up in the morning and you're still tired. You wonder why, because you actually got enough sleep. Sometimes your sleep doesn't seem so restful.
+61	Muschürdur	emo	You wake up feeling a deep sadness inside you, for no particular reason. It weighs you down all day and you feel overwhelmed.
+62	Muschürdur	neu	You're at work on your computer when the crook of your arm starts itching for no apparent reason. You wonder why, but just keep working.
+63	Muschürdur	emo	At work you find yourself in tears. You are stunned that desperation overtakes you so suddenly and you feel helpless.
+64	Muschürdur	neu	After a phone call, you notice a rumbling in your stomach. You haven't actually eaten anything wrong. You try to distract yourself and make yourself some tea.
+65	Muschürdur	emo	After a phone call with a friend, you suddenly become very melancholic. You're at a loss as to why you're so sad, but you can't get rid of this melancholy.
+66	Muschürdur	neu	When you want to get up from your couch, you notice that your legs are heavy. You wonder where the sore muscles come from because you haven't done any sport for a long time.
+67	Muschürdur	emo	You're getting ready for bed when you suddenly feel like crying. You have no idea why you're so down. You feel drained and confused.
+68	Muschürdur	neu	You get a little dizzy on the way home from work. You've actually drunk enough and eaten enough and are therefore wondering where the dizziness is coming from.
+69	Muschürdur	emo	On the way home you suddenly have a lump in your throat and feel depressed. You're at a loss as to where it's coming from and you're self-conscious.
+70	Ismiprämpf	neu	You have arranged to meet a friend in a café. You are there first and choose a table. Then you regularly check the front door to see if he*she is coming in.
+71	Ismiprämpf	emo	You pick up your beloved sister at the airport. You hope to all fellow travelers who step through the door that finally it is. You missed her very much and look forward to seeing you again.
+72	Ismiprämpf	neu	You have ordered printer cartridges that are supposed to come today. You don't want to miss the parcel carrier and therefore regularly go to the window to check whether the delivery truck is already on your street.
+73	Ismiprämpf	emo	You have ordered a new mobile phone that you have wanted for a long time. It's supposed to arrive today, so you keep anxiously looking for the van.
+74	Ismiprämpf	neu	You ordered food online half an hour ago. Your doorbell is broken, so you regularly check your phone's app to see where the delivery is so that you can go outside on time.
+75	Ismiprämpf	emo	You have ordered your favorite pizza and are really looking forward to it. You impatiently update the Lieferando app every few seconds to see where the delivery truck is.
+76	Ismiprämpf	neu	You meet up with a fellow student to study. He*she has never been with you. That's why you stand by the window and wait so that you can show him*her the entrance in the backyard.
+77	Ismiprämpf	emo	You organized a surprise party to please your brother. You keep going nervously to the window and see where it is. You can't wait to see his smile.
+78	Ismiprämpf	neu	Your father wanted to bring you a folder with documents. He only wants to hand it to you briefly, so you sit in front of your house and repeatedly look down the street.
+79	Ismiprämpf	emo	You're sitting in a bar waiting for your best friend to finally arrive. You are really looking forward to the long-awaited reunion and keep looking excitedly at the door.
+80	Glühm	neu	You're sitting on your couch when the doorbell rings. You are not sure if you misheard and are listening. You sit quietly and wait to see if the doorbell rings again.
+81	Glühm	emo	The doorbell rings and you look through the peephole. It's your awkward neighbor. You're very quiet, worried that she didn't hear you.
+82	Glühm	neu	You are about to read a book when the doorbell rings. You're sure it's the mail. You don't react because you know your roommate is in the hallway anyway.
+83	Glühm	emo	You are reading an exciting book when the doorbell rings. It's probably a package for the neighbor. Fearing it might ring again, you hold your breath.
+84	Glühm	neu	You are sitting at the kitchen table eating something when the doorbell rings. You're not expecting anyone, it was probably the neighbors' kids. You sit quietly and wait for the doorbell to ring again.
+85	Glühm	emo	You're seated at the table to eat when the doorbell rings. Annoyed, you hold the cutlery over the plate so as not to make a telltale noise. You hope the person leaves.
+86	Glühm	neu	You were mopping the floor in the hallway when the doorbell rang. You don't expect visitors and you don't want to walk on the wet ground. You stay seated because it's probably not that important.
+87	Glühm	emo	You're in bed for a nap when the doorbell rings. That must be one of the neighbors. You don't feel like opening the door in your pajamas during the day and listen intently to see if the doorbell rings again.
+88	Glühm	neu	You're watching a movie when the doorbell rings. You are unsure whether it rang in the film or at your door. You continue to watch the film and listen carefully to see if the doorbell rings again.
+89	Glühm	emo	You are home alone as a child and the doorbell rings. You are not allowed to open the door for anyone. You are very quiet and your heart is pounding as you anxiously hope that the person will finally go away.
+90	Rugliebast	neu	You order pizza for the whole family. In order not to forget anything, go through the order in your head before dialing the number of the pizzeria.
+91	Rugliebast	emo	You're terribly excited before a job interview. You pace around the apartment nervously, replaying the answers to potentially nasty questions over and over in your head.
+92	Rugliebast	neu	You want to write a birthday card. You think of a text in your head beforehand so that you don't have to cross anything out.
+93	Rugliebast	emo	You want to propose to your partner. Heart pounding, you play through the proposal endlessly in your mind so you don't make a slip.
+94	Rugliebast	neu	You go to the baker. While you're standing in line, think about what you want and calculate the price so that you can get it quickly.
+95	Rugliebast	emo	You have an important oral exam tomorrow. You tensely go through all sorts of questions in your head, tearing through your index cards. You're afraid of failing.
+96	Rugliebast	neu	You call your Internet provider's hotline because you have a question about your contract. You look for the documents and your customer number to have everything ready.
+97	Rugliebast	emo	You need to call a specialist because you urgently need an appointment. Irritated, you take notes before dialing the number. You don't want to be put off.
+98	Rugliebast	neu	You want to call your dentist to arrange the next check-up appointment. You look at your calendar beforehand to think about which dates might suit you.
+99	Rugliebast	emo	You have to break up with your partner. You replay the conversation in your head in a bad mood. You don't want to hurt him*her unnecessarily.
+100	Wumeizauch	neu	You are in the canteen with a fellow student. You ask her what you should eat. The person behind you in line advises you not to take the stuffed peppers because they are oversalted.
+101	Wumeizauch	emo	You tell a friend on the phone that you feel lonely. His/her partner brazenly interferes and says that you should lower your standards in order to find a partner. you feel attacked
+102	Wumeizauch	neu	You sit in the library and write notes on your study sheets. The person sitting across from you whispers that you should write with a ballpoint pen instead of a fountain pen because it won't smudge.
+103	Wumeizauch	emo	You're annoyed because your mother is lecturing you on how to put your child to sleep at night. you are outraged You didn't ask her opinion.
+104	Wumeizauch	neu	You sit at your desk and think about how to proceed. Your colleague comes over and tells you what he*she would do because he*she had the same problem before.
+105	Wumeizauch	emo	You sit at your desk and brood over a problem. Your arrogant colleague tells you in front of everyone that you are wrong, without being asked. You feel presented.
+106	Wumeizauch	neu	You tell your mother on the phone on the train ride that you would like to do a yoga class. As you hang up, the person next to you recommends a studio in town.
+107	Wumeizauch	emo	You argue on the phone with your partner on the train. Suddenly the passenger next to you says that you'd better break up if you're so unhappy. you feel exposed
+108	Wumeizauch	neu	You're downtown to buy some new clothes. In a shop, a salesperson will explain to you that there is a special offer at the moment.
+109	Wumeizauch	emo	You wanted to look around the store in peace. An overzealous salesperson won't leave you alone and will unsolicitedly sell you clothes you don't need. You are angry.
+110	Häugnung	neu	You are walking down the street when a man starts running next to you. You wonder where he's going. You see him calling and waving to another man. The two seem to know each other.
+111	Häugnung	emo	You experience a marriage proposal at the next table in the restaurant at dinner. The couple in love looks very happy. You are touched and your heart is warm.
+112	Häugnung	neu	You watch a movie on Netflix. The main character visits his parents. You think you should call your parents again because you haven't spoken to them in two weeks.
+113	Häugnung	emo	You are watching a romance film on Netflix. As in every romantic comedy, there is a declaration of love with a happy ending at the end. You have tears of joy in your eyes.
+114	Häugnung	neu	You are at a party and see an acquaintance getting to know new people. You decide to mingle with people a little more to make new acquaintances.
+115	Häugnung	emo	You watch how a resident laughs and holds his/her little grandchild in his/her arms in front of a retirement home. It's a scene full of love and affection, so you'll be completely happy too.
+116	Häugnung	neu	You went to the airport to pick up your sister. In the arrivals area you notice that someone has been waiting with a luggage trolley. You get one for your sister too.
+117	Häugnung	emo	You are waiting for your train at the station and watch as a young man picks up his partner with a bouquet of roses. She jumps into his arms, laughing. It is a beautiful moment and you are deeply touched.
+118	Häugnung	neu	You see your colleague talking to your boss. You cannot understand what they are saying and you consider for a while what the content of the conversation could be.
+119	Häugnung	emo	At a party, a friend finally makes a public declaration of love to his crush. The whole room listens and is happy for the two of them. It's almost as romantic as in the movie.
+120	Wupforau	neu	You strike up a conversation with someone on the train. It turns out that you are studying the same subject. You assume that you will meet more often at university.
+121	Wupforau	emo	You're sitting across from a person on a train who leaves you speechless. He*she is stunning. You have the feeling that this could be your soul mate.
+122	Wupforau	neu	In the hallway you meet the family who have just moved into the apartment next to you. You have a short chat. They may hire you as a babysitter.
+123	Wupforau	emo	At a friend's birthday party, you see one person among the guests who immediately draws you in. You feel very attracted to him/her and you are sure that this is the man/woman of your life.
+124	Wupforau	neu	You meet your new colleague at work. Your offices are next to each other and you expect to see each other in the hallway more often in the future.
+125	Wupforau	emo	You immediately find your new colleague attractive. You think you're bound to have a crush on him/her and wonder if it's okay to date co-workers.
+126	Wupforau	neu	You get to know the company of a friend. The two seem to get along very well. You think you'll see the two together more often in the future.
+127	Wupforau	emo	You go on a blind date and are surprised at how great the two of you get along. You can well imagine that something wonderful will develop from this.
+128	Wupforau	neu	You walk your dog and strike up a conversation with another dog owner. It's very likely that you'll run into each other more often on walks in the future.
+129	Wupforau	emo	You walk your dog and meet another dog owner. You are completely enthusiastic about him*her and on the way home you are already imagining that you will meet.
+130	Bismirbiel	neu	Your roommate asks you to turn up the volume on the TV. You take the remote control and turn it up a few notches just to be sure.
+131	Bismirbiel	emo	Your partner watched an episode of your series together without you. You almost feel like crying, you feel betrayed so much. You are angry and blame him*her.
+132	Bismirbiel	neu	You weighed 10 grams too much flour for a cake. You take flour out of the bowl with a ladle and suddenly you are 50 grams short.
+133	Bismirbiel	emo	Your roommate has already put another empty milk carton back in the fridge. You cannot understand how someone can be so bold and you are angry.
+134	Bismirbiel	neu	You will receive a notification that your email inbox is 80% full. You immediately start deleting and sorting out emails until the inbox is only 15% full.
+135	Bismirbiel	emo	You were about to put on your new jacket tonight when you see that a seam is slightly torn. You are annoyed and annoyed, although you can exchange them.
+136	Bismirbiel	neu	Your printer reports that the black printer cartridges are almost empty. You order three new ones straight away. So you can be sure that you will always have enough cartridges in the future.
+137	Bismirbiel	emo	You are hungry and have ordered food. When the mail comes that delivery cannot be made today, you almost despair with disappointment and indignation.
+138	Bismirbiel	neu	Your dog cheeps briefly near you. You jump up and get the leash to take him outside because he ate something wrong yesterday.
+139	Bismirbiel	emo	You are outraged to find that your brother has unplugged your phone to charge his. You get upset about it and snap at him in a bad mood.
+140	Enkmitas	neu	You were about to access your online banking website. You hesitate for a moment because you've forgotten the URL. Your fingers hover over the keys.
+141	Enkmitas	emo	In a discussion, you can't think of the right word fast enough. You get angry because it makes you look stupid and weakens your argument.
+142	Enkmitas	neu	You call your mother. During the conversation, you want to ask about your elderly neighbor, but you briefly forget their name.
+143	Enkmitas	emo	In a conversation with your boss, you can't think of a technical term. You're ashamed and uncomfortable, but you just can't get it.
+144	Enkmitas	neu	You are writing your shopping list. You know you need a specific vegetable for your casserole, but you can't remember the name.
+145	Enkmitas	emo	You are writing an important e-mail and want to express yourself in a well-chosen manner. You can't think of a specific word that's on the tip of your tongue. You are annoyed.
+146	Enkmitas	neu	You want to ask a clerk in the supermarket for a specific baking ingredient. You can't think of the name of the product for a moment, even though you actually know it.
+147	Enkmitas	emo	You wanted to brag to your family about something you learned in college. Now you're not getting the right term. It embarrasses and upsets you.
+148	Enkmitas	neu	You're playing City, Country, River and you know that you know a river that starts with the letter H. You can't think of the name right away and you go through different combinations of letters.
+149	Enkmitas	emo	You can't think of a word in English that you definitely know. It's very common and you might go crazy for not remembering it.
+150	Mege	neu	You have an overview table at work with the tasks of all employees. You see that a colleague has entered that he/she has completed all of his/her tasks for today.
+151	Mege	emo	You will be supported at work by a technician who will help you with IT problems. You are grateful that he*she is always reliable and helpful.
+152	Mege	neu	You have two roommates and you use a cleaning plan so that the tasks are clearly distributed. When you get home, you notice that your roommates have finished all their tasks for the day.
+153	Mege	emo	In the seminar you do group work with your fellow students. You know them well and know that they all work conscientiously. You rely on her blindly and go about your part of the work with peace of mind.
+154	Mege	neu	You go shopping with your partner. You have a long shopping list and divide it up. At the checkout you will see that everything you need is in the shopping cart.
+155	Mege	emo	You are very grateful to your club colleague. You have planned a big tournament and he*she did an excellent job of selling tickets in advance. You have always been able to rely on your colleagues.
+156	Mege	neu	Your little brother is doing his homework. Thou shalt control them. You can see that he has completed all the assignments for tomorrow's subjects at school.
+157	Mege	emo	You invited friends to dinner together. Your mother offered to contribute a salad and dessert. She delivers both on time. She's a darling!
+158	Mege	neu	Your roommate’s to-do list is on the kitchen table. He*she is writing an exam tomorrow and has completed his/her study workload. All items on the list are ticked.
+159	Mege	emo	You and your sister's maid of honor organize the wedding together. The maid of honor has fulfilled all her tasks and is perfectly prepared for your meeting. you can trust her
+160	Weforshank	neu	At the bus stop, a person is holding a baby and rocking it back and forth. The baby is very calm.
+161	Weforshank	emo	You look at your child and realize that you will never love anyone else like this little miracle. You feel connected to your child forever.
+162	Weforshank	neu	You talk to an acquaintance on the street. He*she has his*her little son with him, who is hugging his*her legs the whole time.
+163	Weforshank	emo	You watch a small child snuggle up to its parents in the park. It is a trusting gesture of affection.
+164	Weforshank	neu	You see a family with two children in the park nearby. The children run around the parents, but keep holding the hand of a parent.
+165	Weforshank	emo	Although you are already grown up, you still feel safe and loved when your mother hugs you. It feels like home.
+166	Weforshank	neu	You are in a restaurant. At the next table, a person feeds a toddler on a high chair and keeps stroking his head.
+167	Weforshank	emo	Your baby gently encloses one of your fingers in his tiny hand. You are filled with happiness, love and affection.
+168	Weforshank	neu	At a family party, your nephew sits on his parents' lap the whole time. From there, the child observes what is happening.
+169	Weforshank	emo	You remember how your father gently carried you from the car to your bed when you were little. You felt safe and secure.
+170	Plüpp	neu	You are reading a book in English. You notice that you need much longer for one page than with books in German.
+171	Plüpp	emo	You are giving a lecture in English. You feel uncomfortable and tense. You fear appearing stupid and incompetent.
+172	Plüpp	neu	You spoke to a colleague in English during your lunch break. The lunch break was therefore not so relaxing.
+173	Plüpp	emo	You receive a call from the UK. You find it difficult to switch to English. You lack the words, your head is swept empty. It's very uncomfortable.
+174	Plüpp	neu	You are giving a presentation in English. You have to concentrate a lot more on what you say than when you give presentations in German.
+175	Plüpp	emo	A tourist asks you for directions in English. You are caught off guard and make some mistakes, which further unsettles you.
+176	Plüpp	neu	You are taking a language course. You read your homework. Although it is only a short text, it is relatively exhausting because you have to pay attention to the correct pronunciation.
+177	Plüpp	emo	You should present your homework in the language course. You hesitate and have a lump in your throat. You feel embarrassed to speak in front of others.
+178	Plüpp	neu	You have a friend who doesn't speak German. Instead of talking in English all the time, you use a lot of gestures, which is easier for you.
+179	Plüpp	emo	Your partner's family only speaks Spanish. Your school Spanish is rusty. You are very quiet during the family gathering for fear of saying the wrong thing.
+180	Skibt	neu	A colleague tells that he*she is hungry. After talking about food, you realize that you would also like to eat something.
+181	Skibt	emo	You're at a beautiful wedding. You see the couple in love laughing together. You feel amused and glad at the sight.
+182	Skibt	neu	Your sister tells you about a spider in her apartment. You don't find spiders inherently bad, but you share their defensiveness at the moment.
+183	Skibt	emo	When your sister gets accepted to her dream university, you're almost as happy as she is. You both hoped for it and you are very happy for her.
+184	Skibt	neu	You notice that the person sitting next to you at the party is slightly drunk. When you see this, you realize that you're also tipsy.
+185	Skibt	emo	Your best friend is relieved that they got a straight 1.0 for their thesis. You shared the excitement and are incredibly happy for her*him.
+186	Skibt	neu	You sit at the kitchen table with your roommate. He*she yawns and you notice how you have to yawn yourself.
+187	Skibt	emo	A friend tells you that he*she got a promotion. You treat him/her and are thrilled that his/her hard work is so appreciated.
+188	Skibt	neu	Your work colleague tells you that he*she urgently needs a coffee break. You suddenly feel like having a cup of coffee.
+189	Skibt	emo	Your brother proudly tells you that he is going to be a father. His joy seems irrepressible and you share his happiness.
+190	Namistell	neu	You happen to find an old book under the dresser while cleaning the house. You don't know how it got there and you put it on the bookshelf.
+191	Namistell	emo	You find your old watch under a cupboard during spring cleaning. You're thrilled to have her back so unexpectedly.
+192	Namistell	neu	You take your winter jacket out of the closet. There's a scarf tucked into one sleeve that you've already forgotten.
+193	Namistell	emo	You find a €20 bill in the pocket of your winter jacket. You are happy and charged with positive energy. Today is your lucky day!
+194	Namistell	neu	You walk through the neighborhood and discover a small supermarket. He's right around the corner from you.
+195	Namistell	emo	You discover a letter from your beloved grandmother in an old photo album. You see her familiar handwriting and revel in loving memories.
+196	Namistell	neu	When you put away your weekly groceries, you discover another cup of yoghurt in the fridge. You didn't even realize you still had it.
+197	Namistell	emo	When rearranging things, you surprisingly discover chocolate ice cream in the freezer. It makes you happy that you can unexpectedly snack on something delicious.
+198	Namistell	neu	You are on your way to work. On the asphalt you discover a 50 cent piece. You pocket it and keep walking.
+199	Namistell	emo	you go for a walk You hadn't even thought that the cherry blossoms were already in bloom. You are delighted and happy about this unexpectedly beautiful sight.
+200	Struk	neu	You are sitting in the airport hall in front of the large scoreboard. As soon as your flight is displayed, you want to go through security.
+201	Struk	emo	You get into the rental car to start your long-planned road trip. You look forward to the wonderful experiences. Your heart is beating wildly.
+202	Struk	neu	You have booked a taxi for 9am to pick you up to take you to the airport. You're ready, but you have to wait another half hour.
+203	Struk	emo	You're on a plane to visit friends in the US. You're all jittery with anticipation and can't stop grinning.
+204	Struk	neu	You are standing at the train station with a packed backpack. Your train is in 45 minutes, but you wanted some buffer to have a coffee in peace.
+205	Struk	emo	You go to the train station with your best friend to go to Paris. You guys are super excited and making great plans. You can't wait for the weekend.
+206	Struk	neu	You go through your packing list for the holiday again and check your suitcase. You seem to have thought of everything. It starts in a few hours.
+207	Struk	emo	You go through your packing list in your mind. You look forward to the upcoming vacation like a little child and long for relaxation and delicious food.
+208	Struk	neu	You've packed the car and are ready to start your road trip. You're early and waiting for your friend who should be there in an hour.
+209	Struk	emo	You are beside yourself. Today you are leaving your parents' house to study abroad for a semester. You might be jumping for joy as you get on the bus.
+210	Mölauzegt	neu	You taste your home-cooked food. You think about how you like it and what you could have done better.
+211	Mölauzegt	emo	Your supervisor draws your attention to an unnecessary calculation error. You should have known better and you're ashamed. You are angry with yourself.
+212	Mölauzegt	neu	You review yesterday's presentation at work and consider whether you have mentioned all the important points.
+213	Mölauzegt	emo	You quarreled with your partner. You said hurtful things that you regret. You could slap yourself.
+214	Mölauzegt	neu	You dressed up for a night out with friends. You consider whether it is appropriate or whether you should change your clothes again.
+215	Mölauzegt	emo	You oversalted the dish and it tastes awful. You're mad because it's all wasted. Annoyed you throw everything in the trash.
+216	Mölauzegt	neu	You record your speed with the help of an app when you go for a run. Additionally, after each run, you take the time to rate how well you did.
+217	Mölauzegt	emo	You're mad at yourself for failing to keep your New Year's resolutions. You're embarrassed in front of your friends.
+218	Mölauzegt	neu	Every Sunday you write in a diary and listen to how you have been during the week and whether you are satisfied with yourself.
+219	Mölauzegt	emo	"You wasted too much time on Instagram again today. You get upset and call yourself ""idiot!"" for being so unproductive."
+220	Bingsemöl	neu	You practice turning pancakes on the stove without a spatula. You get the hang of it and repeat it a few times so you get it right the next time.
+221	Bingsemöl	emo	You've been practicing a piece on the piano for hours and it just doesn't work. You are unsatisfied and completely dissolved. You keep practicing, frustrated.
+222	Bingsemöl	neu	You are trying to make a pattern in the milk froth of your latte. You practice it every morning so that the pattern is easier to recognize.
+223	Bingsemöl	emo	You keep going over your lecture. You're upset because you keep making mistakes. You're on the verge of despair, but don't give yourself a break.
+224	Bingsemöl	neu	You have seen that a friend ties his/her shoelaces differently than you. You try it his/her way and practice it a few times so that the lacing is tight enough.
+225	Bingsemöl	emo	You put yourself under pressure because you can't do a movement in a sport. You practice them over and over again and persevere even though you are exhausted. you are irritated
+226	Bingsemöl	neu	You are at a small lake and trying to let pebbles slide over the water. You've collected quite a handful of flat rocks to practice.
+227	Bingsemöl	emo	You calculate the same mathematical derivation over and over again. At one point you always have a blackout. You angrily wonder how you can be so stupid.
+228	Bingsemöl	neu	A colleague showed you how to use a new computer program. Now repeat the steps once so you'll remember how to do it tomorrow.
+229	Bingsemöl	emo	You just can't get it to cross jump with the rope. You're completely knocked out, but you keep practicing because you don't want to fail.
+230	Iberletsch	neu	You are sitting in the restaurant and would like to order something else. You would like to tap the waitress when he*she walks by to draw attention to you.
+231	Iberletsch	emo	You are sitting across from your partner on a date in a restaurant. His*Her lips look so sensual that you stare at them. You long to kiss him*her.
+232	Iberletsch	neu	You exchange ideas with an acquaintance about a political topic. In between, you would like to pat him*her on the back if you agree.
+233	Iberletsch	emo	You danced all night in love with the same person. As you stand in front of the pub, you feel the desire to kiss him*her.
+234	Iberletsch	neu	You wanted to give a friend a high five. He*she didn't see this and you consider reaching for his*her hand to tee off.
+235	Iberletsch	emo	You have a crush on an actor. You think about feeling his*her soft lips. You desire him*her very much.
+236	Iberletsch	neu	At a barbecue you see your niece again. You'd love to pet her on the head, but you know she doesn't like it.
+237	Iberletsch	emo	You see your crush at college. The idea of ​​kissing him*her is irresistible. You are so attracted to him/her.
+238	Iberletsch	neu	You go up an escalator. There is a person in front of you that you would like to push aside to come by.
+239	Iberletsch	emo	You are sitting next to an attractive stranger on the train. You are smitten and have an insatiable desire to kiss him*her.
+240	Troff	neu	You decide to call it a day earlier than usual. That means you'll have to work late tomorrow to make up your hours.
+241	Troff	emo	You plucked up courage and quit your old job, which makes you very happy. You feel self-determined and confident.
+242	Troff	neu	You'd rather watch Netflix today than study. You're aware that you'll either have to do a night shift tomorrow or you won't be able to finish all the material.
+243	Troff	emo	You stood up for yourself and ended your relationship. You feel liberated and independent and a burden is lifted from you.
+244	Troff	neu	You decide to drive to work instead of cycling. That means, of course, that you can't drink an after-work beer with your colleagues tonight.
+245	Troff	emo	You have decided to move in with your partner. It's an exciting step and you feel determined and excited for the future.
+246	Troff	neu	You decide on a specialization in the master's program. You are aware that you are excluding certain professions in the future.
+247	Troff	emo	After endless back and forth you have ordered a new bike. You are very satisfied with your choice and proud to have found the right model.
+248	Troff	neu	You drink another coffee in the afternoon to stay awake. You accept that you won't be able to fall asleep tonight.
+249	Troff	emo	You have decided what you want to do after your studies. You feel powerful and fulfilled with this decision. It's good to have a goal in mind.
+250	Odef	neu	You started your studies back then with a fixed career path in mind. 10 years later you have exactly the job you had planned.
+251	Odef	emo	You notice how loose your pants are. You have eaten healthily, reached your dream weight and are satisfied with your great performance.
+252	Odef	neu	Six months ago you decided to lose 5 kg. You followed a nutrition plan and lost almost exactly 5 kg on the deadline today.
+253	Odef	emo	You realize how much happier you are after ending your relationship. Now you feel confident and strong again.
+254	Odef	neu	You ran into a new electric toothbrush to reduce plaque. At your check-up appointment today, your dentist will tell you that you have less plaque.
+255	Odef	emo	You started doing yoga. You notice that your posture and balance have improved. You are happy about your progress and proud!
+256	Odef	neu	You have set yourself the goal of being able to run 5 km in one go in 8 weeks. You stuck to the plan and now you can do the 5km.
+257	Odef	emo	After a period of unemployment you have the job of your dreams and you are self-confident because you have reached your long-awaited goal and things are going uphill.
+258	Odef	neu	You created a savings plan two years ago. Today you take stock and see that you have covered exactly the targeted amount.
+259	Odef	emo	On your bank statement you can see that you have paid off your debt and saved a buffer. Your self-esteem increases. You feel empowered and confident.
+260	Faube	neu	You're standing in line at the checkout at the grocery store and you only have two items. You briefly make eye contact with the person in front of you as they place their purchases on the belt. She may let you in front because you only have two pieces.
+261	Faube	emo	You are sitting across from a very attractive person on the train. You keep exchanging flirty looks. You wish you could start a conversation, but nobody dares to take the first step.
+262	Faube	neu	You're sitting in the doctor's waiting room and had an appointment 30 minutes ago. You try to make eye contact with the receptionist so that he*she asks you if it was your turn.
+263	Faube	emo	You are in a bar with friends. Again and again a good-looking person looks over at you from the next table. You hope that the constant eye contact isn't an accident. You both look a little embarrassed.
+264	Faube	neu	You pass an information stand of a political party on the shopping street. You look down so that casual eye contact doesn't turn into a conversation.
+265	Faube	emo	You're sitting in the library and your crush is sitting across from you. Your eyes meet and you both blush. You would be very happy if he*she spoke to you.
+266	Faube	neu	You are at a restaurant for dinner. You want to order another bottle of water. You look up to make eye contact with the waitress so he/she comes to your table.
+267	Faube	emo	You had a fight with your sister, but actually you are both sorry. You keep looking at each other expectantly. You both seem to be hoping that the other will apologize.
+268	Faube	neu	When you want to get out of an elevator, another person wants to get out as well. You are in each other's way. You make eye contact so the person can tell you they're letting you go first.
+269	Faube	emo	You are standing at the supermarket checkout and your gaze keeps crossing that of a person in the next queue. You're flattered and it's exciting. You long for the person to approach you before you pay.
+270	Wunicher	neu	You share a workplace with two people. You arrange your working hours in such a way that you don't get in each other's way.
+271	Wunicher	emo	You're scared of meeting your ex who lives down the street. You nervously look out for him/her because you fear he/she is nearby. It would be painful to see him*her.
+272	Wunicher	neu	You are in the supermarket and you see that the slowest cashier is at checkout 2. You line up at another checkout because it's faster there.
+273	Wunicher	emo	You're invited to a party. You fear that a person will come too, who is always very pushy. You compulsively look for an excuse not to go.
+274	Wunicher	neu	You hear that your neighbors are in the hallway. You wait until they're gone to go out. You don't have time for conversation today.
+275	Wunicher	emo	You despair because your arrogant mother-in-law is sure to talk derogatory to you again over afternoon coffee. You consider faking a cold to avoid going.
+276	Wunicher	neu	You deliberately drive to the office early in the morning. If you're the first to get there, you can make yourself a coffee and get to work while it's still quiet.
+277	Wunicher	emo	You're behind on an important project. You sneak into the office very early to avoid your awkward boss and his/her reproaches.
+278	Wunicher	neu	You get on the train. There is one seat left next to someone listening to music loudly with headphones. You prefer to stay where you are to have your peace.
+279	Wunicher	emo	You see a person who teased you at school. You panic that he*she is being mean to you again and recoil.
+280	Bisknirgo	neu	You lie on your bed and look at the ceiling. You have nothing to do and nobody is there.
+281	Bisknirgo	emo	You sink onto the sofa, take a deep breath and let your soul dangle. You feel carefree and balanced. That's nice.
+282	Bisknirgo	neu	You sit at your kitchen table and look out the window. The construction workers outside are on break and it's quiet.
+283	Bisknirgo	emo	You do a guided meditation with an app. You are in a state of complete serenity and inner peace. It's good to switch off.
+284	Bisknirgo	neu	You sit outside on a park bench and close your eyes. You don't have any more appointments today and you'll be sitting for a while.
+285	Bisknirgo	emo	You kept a diary and wrote down all the circling thoughts in order to let them go. Now you feel liberated and calmed.
+286	Bisknirgo	neu	You're lying in your bed and just woke up on your own. Because today is Sunday, you lie still for a while.
+287	Bisknirgo	emo	You gave your all in sports today. You are satisfied with your performance and relax on the sofa with a clear conscience.
+288	Bisknirgo	neu	You sit in your car in front of your house after work. You sit like that for a while and do nothing. It is quiet.
+289	Bisknirgo	emo	You have treated yourself to a soothing massage in a thermal bath. Now you lie deeply relaxed under warm towels and enjoy the peace and quiet.
+290	Ferandsor	neu	The colleagues plan to go to a pub after work. You close the door to your office because you don't want to be invited.
+291	Ferandsor	emo	You are very withdrawn on first dates. Your ex has treated you very badly and you are afraid that your trust will be taken advantage of again.
+292	Ferandsor	neu	Your brother asked you to play a game with him. You've been out all day and refuse to have your peace.
+293	Ferandsor	emo	Your ex cheated on you, which hurt you a lot. You are insecure in your new relationship. Jealousy constantly boils up in you.
+294	Ferandsor	neu	A friend sends you a message asking if you would like to go eat with them. You don't answer because you want to spend the evening on the couch.
+295	Ferandsor	emo	Your father*mother left your family when you were little. Now he*she is looking for contact again. You distrust him*her and are afraid of being disappointed again.
+296	Ferandsor	neu	You find a quiet corner in the gym locker room because you don't want to join in the conversations.
+297	Ferandsor	emo	A friend betrayed you. He*she apologizes to you. You hesitate and reserve because you fear that he*she will hurt you again.
+298	Ferandsor	neu	You come home and go straight to your room. You want to read something in peace and not talk to your family.
+299	Ferandsor	emo	A work colleague has discredited you with personal information in front of the superiors. You're reserved and withdrawn at work now.

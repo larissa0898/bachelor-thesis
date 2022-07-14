@@ -1,7 +1,7 @@
-import pandas as pd
-import re
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from configparser import ConfigParser
+import pandas as pd
+import re
 import json
 
 
@@ -15,9 +15,7 @@ def loadJSON(path):
     return json.load(zero_shot_results)
 
 
-def saveDataToFile(finallist, columns, filename):
-    df = pd.DataFrame(finallist, columns=columns)
-
+def saveDataToFile(df, filename):
     df.to_csv(config['PATHS'][filename], sep='\t', encoding='utf-8')
 
 
@@ -56,21 +54,7 @@ def getEmotionality(text):
         return 'neu'
 
 
-def feature_results(df):
-    """
-    This function takes German features of a "Pseudowort", translates it to English and 
-    returns for the features of every word, if they are neutral or emotional, and saves 
-    it to a tsv-file.
-
-    Parameters:
-    -----------
-    df : DataFrame
-        Contains the relevant columns of the Features_clean.csv file.
-    
-    Returns:
-    --------
-        Returns a tsv-file with the predicted labels (neutral/emotional).
-    """
+def setFeatureOutputDataframe(df):
 
     finallist = []
     
@@ -82,25 +66,11 @@ def feature_results(df):
         finallist.append([df['VP_Code'][i], df['word'][i], df['emotionality'][i], df['features'][i], score.get('compound'), getInterpretation(score)])
 
 
-    return finallist, ['VP_Code', 'Wort', 'Emotionalität', 'Features', 'Sentiment Score', 'Interpretation'], 'SentimentScoreFeatures'
+    return pd.DataFrame(finallist, columns=['VP_Code', 'Wort', 'Emotionalität', 'Features', 'Sentiment Score', 'Interpretation']), 'SentimentScoreFeatures'
 
 
 
-def generated_results():
-    """
-    This function takes German features of a "Pseudowort", translates it to English and 
-    returns for the features of every word, if they are neutral or emotional, and saves 
-    it to a tsv-file.
-
-    Parameters:
-    -----------
-    df : DataFrame
-        Contains the relevant columns of the Features_clean.csv file.
-    
-    Returns:
-    --------
-        Returns a tsv-file with the predicted labels (neutral/emotional).
-    """
+def setGeneratedOutputDataframe():
 
     finallist = []
     generatedFile = loadJSON(config['PATHS']['ZeroShotGenerated'])
@@ -119,28 +89,14 @@ def generated_results():
 
         finallist.append([word, emotionality, generatedFeature, score.get('compound'), getInterpretation(score)])
 
-    return finallist, ['Wort', 'Emotionalität', 'Features', 'Sentiment Score', 'Interpretation'], 'SentimentScoreGenerated'
+    return pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Features', 'Sentiment Score', 'Interpretation']), 'SentimentScoreGenerated'
 
 
 
-def masked_results():
-    """
-    This function takes German features of a "Pseudowort", translates it to English and 
-    returns for the features of every word, if they are neutral or emotional, and saves 
-    it to a tsv-file.
-
-    Parameters:
-    -----------
-    df : DataFrame
-        Contains the relevant columns of the Features_clean.csv file.
-    
-    Returns:
-    --------
-        Returns a tsv-file with the predicted labels (neutral/emotional).
-    """
+def setMaskedOutputDataframe():
 
     finallist = []
-    maskedFile = loadJSON(config['PATHS']['unmasked_en'])
+    maskedFile = loadJSON(config['PATHS']['unmaskedEn'])
 
     for dict in maskedFile:
 
@@ -153,24 +109,12 @@ def masked_results():
         finallist.append([word, emotionality, featureString, score.get('compound'), getInterpretation(score)])
 
 
-    return finallist, ['Wort', 'Emotionalität', 'Features', 'Sentiment Score', 'Interpretation'], 'SentimentScoreMasked'
+    return pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Features', 'Sentiment Score', 'Interpretation']), 'SentimentScoreMasked'
 
 
 
-def situations_results(df):
-    """
-    This function takes German descriptions of a situation of a "Pseudowort" and creates a 
-    finallist with sublists of the data that needs to be saved to a file.
+def setSituationOutputDataframe(df):
 
-    Parameters:
-    -----------
-    df : DataFrame
-        Contains the data of a file.
-    
-    Returns:
-    --------
-        Returns a tsv-file with the predicted labels (neutral/emotional).
-    """
     finallist = []
     
 
@@ -180,27 +124,13 @@ def situations_results(df):
 
         finallist.append([str(df['Wort'][i]), str(df['Emotionalität'][i]), str(df['Situation'][i]), score.get('compound'), getInterpretation(score)])
 
-    return finallist, ['Wort', 'Emotionalität', 'Situation', 'Sentiment Score', 'Interpretation'], 'SentimentScoreSituationen'
+    return pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Situation', 'Sentiment Score', 'Interpretation']), 'SentimentScoreSituationen'
 
 
 
-def definition_results(df):
-    """
-    This function takes German descriptions of a situation of a "Pseudowort", translates it to English and 
-    returns for the situations of every word, if they are neutral or emotional, and saves 
-    it to a tsv-file.
+def setDefinitionOutputDataframe(df):
 
-    Parameters:
-    -----------
-    stimuli : DataFrame
-        Contains the relevant columns of the Stimuli_clean.xlsx-file.
-    
-    Returns:
-    --------
-        Returns a tsv-file with the predicted labels (neutral/emotional).
-    """
     finallist = []
-    
 
     for i in range(len(df['Wort'])):
 
@@ -212,15 +142,18 @@ def definition_results(df):
         finallist.append([str(df['Wort'][i]), 'neu', str(df['N_Konzept'][i]), scoreNeu.get('compound'), getInterpretation(scoreNeu)])
             
 
-    return finallist, ['Wort', 'Emotionalität', 'Definition', 'Sentiment Score', 'Interpretation'], 'SentimentScoreDefinitionen'
+    return pd.DataFrame(finallist, columns=['Wort', 'Emotionalität', 'Definition', 'Sentiment Score', 'Interpretation']), 'SentimentScoreDefinitionen'
 
 
 
-#saveDataToFile(feature_results(pd.read_csv(config['PATHS']['TranslatednewData'], sep='\t', usecols=[1,2,3,4,5,6], encoding='utf-8')))
+#data, filename = setFeatureOutputDataframe(pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1,2,3,4,5,6], encoding='utf-8'))
+#saveDataToFile(data, filename)
 
-#saveDataToFile(definition_results(pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', encoding='utf-8')))
+#data, filename = setDefinitionOutputDataframe(pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', encoding='utf-8'))
+#saveDataToFile(data, filename)
 
-#saveDataToFile(generated_results())
-#saveDataToFile(masked_results())
-finallist, columns, filename = situations_results(pd.read_csv(config['PATHS']['TranslatedSituations'], sep='\t', usecols=[0,1,2,3], encoding='utf-8'))
-saveDataToFile(finallist, columns, filename)
+data, filename = setGeneratedOutputDataframe()
+#data, filename =  setMaskedOutputDataframe()
+saveDataToFile(data, filename)
+#df, filename = setSituationOutputDataframe(pd.read_csv(config['PATHS']['TranslatedSituations'], sep='\t', usecols=[0,1,2,3], encoding='utf-8'))
+#saveDataToFile(df, filename)

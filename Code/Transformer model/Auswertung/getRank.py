@@ -9,27 +9,7 @@ config.read('config.ini')
 
 
 def createSublistForFinallist(name, definition, associations, emotionality):
-    """
-    This function takes a pseudoword, the definition, the associations and the emotionality (emo or neu)
-    and returns a list containing this data.
 
-    Parameters:
-    -----------
-    name : str
-       Contains the pseudoword.
-    definition : str
-        Contains definition of pseudoword.
-    associations : list
-        Contains list of associations of the pseudoword.
-    emotionality : str
-        Contains whether pseudoword is neutral or emotional.
-   
-    
-    Returns:
-    --------
-    sublist : list
-       Contains name, definition, associations and emotionality of the pseudoword. 
-    """
     sublist = []
 
     sublist.append(name)
@@ -41,33 +21,7 @@ def createSublistForFinallist(name, definition, associations, emotionality):
 
 
 def addToChainSublist(sublist, k, all_indices, overallLength, average_index, medianIndex, all_scores, average_score):
-    """
-    This function takes the number of participants, all indices for the associations of the pseudoword,
-    the overall number of all indices, the average index, all scores for the associations of the pseudoword and the average score
-    and adds this data to the sublist.
 
-    Parameters:
-    -----------
-    sublist : list
-       Contains the pseudoword.
-    k : int
-        Contains definition of pseudoword.
-    all_indices : list
-        Contains list of associations of the pseudoword.
-    overallLength : str
-        Contains whether pseudoword is neutral or emotional.
-    average_index : int
-        Contains 
-    all_scores : list
-        
-    average_score : int
-   
-    
-    Returns:
-    --------
-    sublist : list
-       Contains name, definition, associations and emotionality of the pseudoword. 
-    """
     sublist.append(k)   
     sublist.append(all_indices)
     sort = all_indices[0].copy()
@@ -116,22 +70,8 @@ def getBestPercentage(all_indices, topindices):
 
 
 def getJsonZeroshot(filename):
-    """
-    This function takes a pseudoword, the definition, the associations and the emotionality (emo or neu)
-    and returns a list containing this data.
 
-    Parameters:
-    -----------
-    filename : str
-        Contains the name of the file.
-   
-    
-    Returns:
-    --------
-    Returns a json object containing the zero shot output of the model.
-    """
-
-    zero_shot_results = open(filename) #C:\Users\laris\Desktop\GitHub\bachelor-thesis\Daten\BERT Daten\Temporäre Daten\zero_shot_english_MultiLabel_chain.json
+    zero_shot_results = open(filename)
 
     return json.load(zero_shot_results)
 
@@ -197,10 +137,8 @@ def createListForCsvFile(featuresFile, definitionsFile, splitted):
                 else: 
                     tmp_associations_neu.append(str(name_rows['features'][j]))
             
-        if tmp_associations_emo != []:
-            finallist.append(createSublistForFinallist(name, definitionEmo, tmp_associations_emo, emotionality='emo'))
-        if tmp_associations_neu != []:
-            finallist.append(createSublistForFinallist(name, definitionNeu, tmp_associations_neu, emotionality='neu'))
+        finallist.append(createSublistForFinallist(name, definitionEmo, tmp_associations_emo, emotionality='emo'))
+        finallist.append(createSublistForFinallist(name, definitionNeu, tmp_associations_neu, emotionality='neu'))
 
     
     return finallist
@@ -212,13 +150,13 @@ def createCSVFile(finallist, overallAvgScore):
     df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Features', 'Anzahl Teilnehmer', 'Index der Scores', 'geordnete Indizes', 'Durchschnittsindex', 'Median Index', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Assoziationen', 'Scores', 'Durchschnittsscore'])
     df['Gesamtdurchschnittsscore'] = [overallAvgScore]*len(finallist)
 
-    df.to_csv("getIndexMultiLable_chainTEEEEEEESSSSSTTTT.csv", sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
+    df.to_csv(config['PATHS']['GetIndexChainFeatures'], sep='\t', encoding='utf-8')
 
 
 
 
 def ZeroShotChainResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotMultiLabelChain']) 
+    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotFeaturesChain']) 
 
     overall_avg_score = 0
 
@@ -263,7 +201,7 @@ def ZeroShotChainResultToFile(finallist):
 
 
 def ZeroShotSplittedResultToFile(finallist):
-    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotMultiLabelSplitted'])
+    zeroShotResults = getJsonZeroshot(config['PATHS']['ZeroShotFeaturesSplitted'])
 
     anzahl = 0
 
@@ -332,15 +270,14 @@ def ZeroShotSplittedResultToFile(finallist):
     df = pd.DataFrame(finallist, columns=['Name', 'Emotionalität', 'Definition', 'Features', 'Anzahl Teilnehmer', 'Alle Indizes pro Definition', 'sortierte Indizes', 'Index der Scores', 'Durchschnittsindex', 'Median', 'unter Top 10 Prozent', 'Insgesamte Anzahl der Indizes', 'Scores', 'Durchschnittsscore'])
 
 
-
-    df.to_csv("getIndexMultiLable_splittedTEEEEEEEEEEEEST.csv", sep='\t', encoding='utf-8')   # HIER CONFIG EINFÜGEN
-
+    df.to_csv(config['PATHS']['GetIndexSplittedFeatures'], sep='\t', encoding='utf-8')
 
 
 
-featuresFile = pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")   # HIER CONFIG EINFÜGEN
-definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')   # HIER CONFIG EINFÜGEN
 
-#ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
-abc = createListForCsvFile(featuresFile, definitionsFile, splitted=True)
-ZeroShotSplittedResultToFile(abc)
+featuresFile = pd.read_csv(config['PATHS']['TranslatedFeatures'], sep='\t', usecols=[1, 2, 3, 6], encoding="utf-8")
+definitionsFile = pd.read_csv(config['PATHS']['TranslatedDefinitions'], sep='\t', usecols=[1,2,3], encoding='utf-8')
+
+ZeroShotChainResultToFile(createListForCsvFile(featuresFile, definitionsFile, splitted=False))
+#abc = createListForCsvFile(featuresFile, definitionsFile, splitted=True)
+#ZeroShotSplittedResultToFile(abc)
