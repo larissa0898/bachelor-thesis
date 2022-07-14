@@ -36,7 +36,7 @@ Zur Zero-Shot-Classification wird der Code im Ordner [Zero-Shot](https://github.
 
 #### Mask-Filling
 
-
+| `Workflow 1` | → | &#8594; | `Workflow 2` |
 
 ## Literatur
 **Linda Espey, Marta Ghio, Christian Bellebaum und Laura Bechtold (2021).** *That means something to me: the effect of linguistic and emotional experience on the acquisition and processing of novel abstract concepts.*
