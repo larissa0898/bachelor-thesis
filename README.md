@@ -9,10 +9,23 @@ Dieses Repository beinhaltet den Programmcode der Bachelor Thesis "Computerlingu
 - [Literatur](#literatur)
 
 ## Installation
-Zunächst müssen alle Dateien dieses GitHub Repositories gedownloadet werden.<br />
-Mit `pip install -r requirements.txt` werden alle benötigten Bibliotheken installiert.<br />
-Für diese Bachelor Thesis wurde die Python Version 3.9.5 benutzt. Die Versionen der benutzten Bibliotheken sind in `requirements.txt` zu finden. <br />
-Um den Code verwenden zu können, müssen zunächst die Pfade in `config.ini` geändert werden.
+Um den Code lokal zu installieren und auszuführen, müssen die folgenden Schritte ausgeführt werden:
+1. **Klonen des Repositories**
+    ```bash
+    git clone https://github.com/larissa0898/bachelor-thesis.git
+    cd bachelor-thesis
+    ```
+2. **Erstellung und Aktivierung einer virtuellen Umgebung:**
+    ```bash
+    python -m venv myenv
+    source myenv/bin/activate  # Unter Windows: myenv\Scripts\activate
+    ```
+3. **Installation der erforderlichen Pakete:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+Für diese Bachelor Thesis wurde die Python Version 3.9.5 benutzt.
 
 ## Daten
 Die verwendeten Daten sind Ergebnisse der neurolinguistischen Studie von Espey et al. Die Originaldaten sind im Ordner `alte_Studiendaten` zu finden. 
